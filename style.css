@@ -283,6 +283,11 @@ a {
     display: none !important;
 }
 
+/* --- TASTO TORNA ALLA HOME: NASCOSTO TOTALMENTE SU PC --- */
+.mobile-back-btn-wrap {
+    display: none !important;
+}
+
 /* --- HERO SECTION DESKTOP --- */
 .hero-section {
     position: relative;
@@ -1890,7 +1895,35 @@ body.page-loaded .stat-card:nth-child(3) {
         font-size: 1.15rem;
     }
 
-    /* 3. Modalita Mobile: una sola sezione visibile per volta */
+    /* 3. Tasto Torna alla Home: visibile SOLO su mobile */
+    .mobile-back-btn-wrap {
+        display: block !important;
+        margin-bottom: 24px;
+    }
+
+    .btn-mobile-back {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: rgba(18, 57, 98, 0.08);
+        color: var(--primary);
+        border: 1px solid var(--border-color);
+        padding: 9px 18px;
+        border-radius: 50px;
+        font-size: 0.9rem;
+        font-weight: 700;
+        cursor: pointer;
+        transition: background 0.2s ease, transform 0.2s ease;
+    }
+
+    .btn-mobile-back:hover,
+    .btn-mobile-back:active {
+        background: var(--primary);
+        color: #ffffff;
+        transform: scale(0.97);
+    }
+
+    /* 4. Modalità Mobile: una sola sezione visibile per volta */
     body.mobile-mode section[id] {
         display: none !important;
     }
@@ -1929,17 +1962,22 @@ body.page-loaded .stat-card:nth-child(3) {
     body.mobile-mode section.mobile-active-section .sponsor-cta-box,
     body.mobile-mode section.mobile-active-section .contact-info,
     body.mobile-mode section.mobile-active-section .contact-form-wrap,
-    body.mobile-mode section.mobile-active-section .past-events-section {
+    body.mobile-mode section.mobile-active-section .past-events-section,
+    body.mobile-mode section.mobile-active-section .mobile-back-btn-wrap {
         animation: rainDropMobile 0.65s cubic-bezier(0.25, 1, 0.5, 1) both;
     }
 
     /* Ritardi scaglionati */
+    body.mobile-mode section.mobile-active-section .mobile-back-btn-wrap {
+        animation-delay: 0.02s;
+    }
+
     body.mobile-mode section.mobile-active-section .section-header {
-        animation-delay: 0.05s;
+        animation-delay: 0.08s;
     }
 
     body.mobile-mode section.mobile-active-section .spotlight-wrapper {
-        animation-delay: 0.10s;
+        animation-delay: 0.12s;
     }
 
     body.mobile-mode section.mobile-active-section .about-grid .about-card:nth-child(1),
@@ -1977,7 +2015,7 @@ body.page-loaded .stat-card:nth-child(3) {
         animation-delay: 0.28s;
     }
 
-    /* Quando si torna alla Home dal menu */
+    /* Quando si torna alla Home dal menu o dal tasto indietro */
     body.mobile-mode #hero.mobile-active-section .hero-title {
         animation: rainDropMobile 0.65s cubic-bezier(0.25, 1, 0.5, 1) 0.10s both;
     }

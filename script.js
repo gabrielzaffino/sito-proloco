@@ -298,7 +298,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Touch Swipe mobile
+    // Touch Swipe mobile lightbox
     let touchStartX = 0;
     let touchEndX = 0;
 
@@ -327,7 +327,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // ===================================================
-    // EFFETTO A PIOGGIA GLOBALE
+    // EFFETTO A PIOGGIA GLOBALE (DESKTOP)
     // ===================================================
     setTimeout(() => {
         document.body.classList.add('page-loaded');
@@ -397,7 +397,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const targetSection = document.getElementById(targetId);
         if (!targetSection) return;
 
-        // Chiudi il menu mobile
+        // Chiudi il menù mobile
         if (hamburgerBtn && mobileDrawer) {
             hamburgerBtn.classList.remove('open');
             mobileDrawer.classList.remove('open');
@@ -416,6 +416,26 @@ document.addEventListener('DOMContentLoaded', () => {
             setActiveLink(targetId);
         });
     }
+
+    // Tasto "Torna alla Home" generato su mobile in cima a ogni sezione
+    sections.forEach(sec => {
+        if (sec.id !== 'hero') {
+            const container = sec.querySelector('.container');
+            if (container) {
+                const backWrap = document.createElement('div');
+                backWrap.className = 'mobile-back-btn-wrap';
+                backWrap.innerHTML = `
+                    <button type="button" class="btn-mobile-back">
+                        <i class="fa-solid fa-arrow-left"></i> Torna alla Home
+                    </button>
+                `;
+                backWrap.querySelector('button').addEventListener('click', () => {
+                    switchMobileSection('hero');
+                });
+                container.prepend(backWrap);
+            }
+        }
+    });
 
     // Intercetta i click sui link di navigazione
     document.querySelectorAll('a[href^="#"]').forEach(link => {
