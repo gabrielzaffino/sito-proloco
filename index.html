@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Pro Loco Torre di Ruggiero APS | Tradizione, Comunità e Futuro</title>
+    <meta name="description" content="Sito ufficiale della Pro Loco di Torre di Ruggiero APS. Eventi, rassegne cinema, territorio, tradizioni e tesseramento nel cuore delle Serre Calabresi.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome Icone -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Foglio di Stile -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Header & Navbar -->
+    <header class="header">
+        <nav class="nav-container">
+            <a href="#hero" class="brand-logo">
+                <div class="logo-image-wrap">
+                    <img src="logo.JPG" alt="Torre di Ruggiero Logo" class="brand-icon-img" onerror="this.src='logo.png'">
+                </div>
+                <div class="brand-text">
+                    <span class="proloco-title">PRO LOCO</span>
+                    <span class="sub-title">Torre di Ruggiero APS</span>
+                </div>
+            </a>
+
+            <!-- Menu Desktop -->
+            <ul class="nav-links">
+                <li><a href="#hero" class="nav-item">Home</a></li>
+                <li><a href="#cinema-evento" class="nav-item">Eventi</a></li>
+                <li><a href="#chi-siamo" class="nav-item">Chi Siamo</a></li>
+                <li><a href="#territorio" class="nav-item">Scopri Torre</a></li>
+                <li><a href="#galleria" class="nav-item">Galleria</a></li>
+                <li><a href="#tesseramento" class="nav-item">Tesseramento</a></li>
+                <li><a href="#sponsor" class="nav-item">Sponsor</a></li>
+                <li><a href="#contatti" class="nav-item">Contatti</a></li>
+            </ul>
+
+            <button class="hamburger-btn" id="hamburger-btn" aria-label="Apri menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+
+        <!-- Menu Mobile Drawer (Senza il pulsante Diventa Socio) -->
+        <div class="mobile-drawer" id="mobile-drawer">
+            <ul class="mobile-links">
+                <li><a href="#hero" class="mobile-nav-item">Home</a></li>
+                <li><a href="#cinema-evento" class="mobile-nav-item">Eventi</a></li>
+                <li><a href="#chi-siamo" class="mobile-nav-item">Chi Siamo</a></li>
+                <li><a href="#territorio" class="mobile-nav-item">Scopri Torre</a></li>
+                <li><a href="#galleria" class="mobile-nav-item">Galleria</a></li>
+                <li><a href="#tesseramento" class="mobile-nav-item">Tesseramento</a></li>
+                <li><a href="#sponsor" class="mobile-nav-item">Sponsor</a></li>
+                <li><a href="#contatti" class="mobile-nav-item">Contatti</a></li>
+            </ul>
+            <div class="mobile-drawer-footer">
+                <div class="mobile-socials">
+                    <a href="https://www.facebook.com/p/prolocotorrediruggiero-61594633873034/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/proloco_torrediruggiero/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://whatsapp.com/channel/0029Vb8dpYq5K3zN9giYi612" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section" id="hero">
+        <div class="hero-bg-image"></div>
+        <div class="hero-overlay"></div>
+
+        <div class="container hero-content">
+            <h1 class="hero-title">
+                Riscopri le radici,<br>
+                <span class="accent-text">accendi il futuro.</span>
+            </h1>
+            <p class="hero-desc">
+                Un gruppo di giovani uniti dalla passione per Torre di Ruggiero. Rianimiamo la nostra storia, la cultura e le tradizioni nel cuore delle Serre Calabresi.
+            </p>
+            <div class="hero-buttons">
+                <a href="#cinema-evento" class="btn btn-primary"><i class="fa-solid fa-film"></i> Prossimo Evento</a>
+                <a href="#territorio" class="btn btn-outline"><i class="fa-solid fa-compass"></i> Esplora Torre</a>
+            </div>
+
+            <!-- Stats Bar -->
+            <div class="hero-stats">
+                <div class="stat-card">
+                    <span class="stat-num">100%</span>
+                    <span class="stat-label">Passione Giovanile</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-num">Serre</span>
+                    <span class="stat-label">Natura & Sentieri</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-num">Eventi</span>
+                    <span class="stat-label">Cultura e Cinema</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sezione Eventi -->
+    <section class="event-spotlight-section" id="cinema-evento">
+        <div class="container">
+            <div class="spotlight-wrapper" id="spotlight-container"></div>
+
+            <div class="past-events-section" id="past-events-wrap" style="display: none;">
+                <div class="past-events-header">
+                    <span class="badge-section">La Nostra Attività</span>
+                    <h3 class="past-events-title">Eventi Precedenti & Rassegne</h3>
+                    <p class="past-events-desc">I momenti condivisi insieme e le iniziative realizzate dalla Pro Loco.</p>
+                </div>
+                <div class="past-events-grid" id="past-events-grid"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Chi Siamo -->
+    <section class="about-section" id="chi-siamo">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="badge-section">La Rinascita</span>
+                <h2 class="section-title">Una Pro Loco Giovane, Attiva e Inclusiva</h2>
+                <p class="section-desc">
+                    Abbiamo scelto di metterci la faccia e l'impegno per dare voce a Torre di Ruggiero, creando occasioni d'incontro e rilanciando la nostra comunità.
+                </p>
+            </div>
+
+            <div class="about-grid">
+                <div class="about-card">
+                    <div class="about-icon"><i class="fa-solid fa-bolt"></i></div>
+                    <h3>Energia & Iniziative</h3>
+                    <p>Cinema in piazza, musica dal vivo, valorizzazione dei vicoli e spazi aperti alle proposte di tutti i ragazzi del territorio.</p>
+                </div>
+                <div class="about-card active-card">
+                    <div class="about-icon"><i class="fa-solid fa-seedling"></i></div>
+                    <h3>Custodia delle Tradizioni</h3>
+                    <p>Salvaguardare e valorizzare ciò che i nostri nonni ci hanno tramandato: devozione, usanze contadine e radici storiche.</p>
+                </div>
+                <div class="about-card">
+                    <div class="about-icon"><i class="fa-solid fa-hands-holding-circle"></i></div>
+                    <h3>Comunità al Centro</h3>
+                    <p>La Pro Loco appartiene a tutti: chi vive qui tutto l'anno, chi ritorna con orgoglio e chi desidera vedere Torre rifiorire.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Scopri Torre di Ruggiero -->
+    <section class="territory-section" id="territorio">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="badge-section">Il Nostro Patrimonio</span>
+                <h2 class="section-title">Un Borgo da Scoprire</h2>
+                <p class="section-desc">
+                    La storia millenaria dei Normanni, le leggende del borgo e i sapori tipici della nostra terra. Clicca su ciascuna card per leggerne la storia completa.
+                </p>
+            </div>
+
+            <div class="cards-grid">
+                <div class="territory-card" data-history="santuario">
+                    <div class="card-thumb">
+                        <img src="santuario.jpeg" alt="Santuario Diocesano della Madonna delle Grazie" onerror="this.src='santuario.jpg'">
+                    </div>
+                    <div class="card-body">
+                        <span class="tag">Fede & Identità</span>
+                        <h3>Santuario Madonna delle Grazie</h3>
+                        <p>Punto di riferimento spirituale per tutta la Calabria, meta di fede, raccoglimento e secolare devozione popolare.</p>
+                        <div class="card-action-link">
+                            <span>Scopri la storia</span> <i class="fa-solid fa-arrow-right"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="territory-card" data-history="conte-ruggiero">
+                    <div class="card-thumb">
+                        <img src="cavallo.jpg" alt="Monumento al Conte Ruggiero il Normanno a cavallo">
+                    </div>
+                    <div class="card-body">
+                        <span class="tag">Storia & Identità Normanna</span>
+                        <h3>Il Conte Ruggiero a Cavallo</h3>
+                        <p>Simbolo identitario del borgo legato alle gesta di Ruggiero I il Normanno. La maestosa statua equestre celebra le radici del nostro paese.</p>
+                        <div class="card-action-link">
+                            <span>Scopri la storia</span> <i class="fa-solid fa-arrow-right"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="territory-card" data-history="tradizioni">
+                    <div class="card-thumb">
+                        <img src="fagioli.webp" alt="Pasta e fagioli tipica delle Serre">
+                    </div>
+                    <div class="card-body">
+                        <span class="tag">Gusto Autentico & Tradizione</span>
+                        <h3>Tradizioni e Sapori Nostrani</h3>
+                        <p>I piatti fumanti della cucina contadina come la storica pasta e fagioli, la rinomata nocciola di Torre e i sapori genuini delle feste.</p>
+                        <div class="card-action-link">
+                            <span>Scopri la storia</span> <i class="fa-solid fa-arrow-right"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Galleria Fotografica -->
+    <section class="gallery-section" id="galleria">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="badge-section">I Nostri Ricordi</span>
+                <h2 class="section-title">Galleria delle Serate</h2>
+                <p class="section-desc">
+                    Rivivi le emozioni, i sorrisi e i momenti più belli condivisi insieme nel nostro paese. Clicca su un album per sfogliare gli scatti della serata.
+                </p>
+            </div>
+
+            <div class="gallery-albums-grid" id="gallery-albums-container"></div>
+        </div>
+    </section>
+
+    <!-- Tesseramento CTA -->
+    <section class="cta-section" id="tesseramento">
+        <div class="container">
+            <div class="cta-box">
+                <div class="cta-inner">
+                    <span class="badge-white">Tesseramento 2026 / 2027</span>
+                    <h2>Fai la tua parte. Diventa Socio.</h2>
+                    <p>
+                        Ogni iniziativa vive grazie al supporto di chi crede in questo paese. Tesserarsi è un piccolo gesto concreto per dare continuità e forza ai progetti dei giovani.
+                    </p>
+                    <div class="cta-action-buttons">
+                        <button type="button" class="btn btn-gold" id="btn-adesione">
+                            <i class="fa-solid fa-file-signature"></i> Modulo di Adesione
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sezione Sponsor & Partner -->
+    <section class="sponsor-section" id="sponsor">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="badge-section">Insieme per Torre</span>
+                <h2 class="section-title">Sostieni le Nostre Iniziative</h2>
+                <p class="section-desc">
+                    Crediamo nella sinergia con le attività produttive, i commercianti e le aziende del nostro territorio per far crescere il borgo e realizzare eventi di qualità.
+                </p>
+            </div>
+
+            <div class="sponsor-cta-box">
+                <div class="sponsor-cta-icon">
+                    <i class="fa-solid fa-handshake-angle"></i>
+                </div>
+                <div class="sponsor-cta-content">
+                    <h3>Diventa Sponsor Ufficiale della Pro Loco</h3>
+                    <p>
+                        Vuoi dare visibilità alla tua attività e sostenere concretamente le rassegne culturali, il cinema e le feste tradizionali? Il tuo logo sarà presente sul nostro sito ufficiale, sui canali social e su tutte le locandine degli eventi.
+                    </p>
+                    <div class="sponsor-badges-list">
+                        <span><i class="fa-solid fa-check"></i> Presenza sul sito e social</span>
+                        <span><i class="fa-solid fa-check"></i> Logo sulle locandine ufficiali</span>
+                        <span><i class="fa-solid fa-check"></i> Visibilità durante gli eventi dal vivo</span>
+                    </div>
+                </div>
+                <div class="sponsor-cta-btn-wrap">
+                    <a href="#contatti" class="btn btn-primary">
+                        <i class="fa-solid fa-envelope-open-text"></i> Diventa Partner
+                    </a>
+                </div>
+            </div>
+
+            <div class="sponsor-grid-placeholder">
+                <span class="sponsor-placeholder-note">
+                    <i class="fa-solid fa-circle-nodes"></i> Spazio riservato ai Partner Ufficiali 2026/2027
+                </span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contatti -->
+    <section class="contact-section" id="contatti">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <span class="badge-section">Contatti & Canali</span>
+                    <h2>Siamo a Tua Disposizione</h2>
+                    <p>Vuoi proporre un'idea per un evento, chiedere info sul tesseramento o unirti al gruppo di lavoro? Scrivici subito!</p>
+                    
+                    <div class="contact-methods">
+                        <div class="c-item">
+                            <i class="fa-solid fa-map-location-dot"></i>
+                            <div>
+                                <h4>Sede</h4>
+                                <p>
+                                    <a href="https://www.google.com/maps/place/Viale+Vittorio+Veneto,+7,+88060+Torre+di+Ruggiero+CZ/@38.6504265,16.3713702,17z/data=!3m1!4b1!4m6!3m5!1s0x13154fde91bb1439:0x1e9134ed0751ab1b!8m2!3d38.6504223!4d16.3739451!16s%2Fg%2F11c2g22bby?entry=ttu&g_ep=EgoyMDI2MTAwNC4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer">
+                                       Viale Vittorio Veneto 7, Torre di Ruggiero, Italy, 88060
+                                    </a>
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="c-item">
+                            <i class="fa-solid fa-envelope"></i>
+                            <div>
+                                <h4>Email</h4>
+                                <p><a href="mailto:proloco.torrediruggiero@gmail.com">proloco.torrediruggiero@gmail.com</a></p>
+                            </div>
+                        </div>
+
+                        <div class="c-item">
+                            <i class="fa-brands fa-facebook-f"></i>
+                            <div>
+                                <h4>Pagina Facebook</h4>
+                                <p><a href="https://www.facebook.com/p/prolocotorrediruggiero-61594633873034/" target="_blank" rel="noopener noreferrer">@proloco.torrediruggiero</a></p>
+                            </div>
+                        </div>
+
+                        <div class="c-item">
+                            <i class="fa-brands fa-instagram"></i>
+                            <div>
+                                <h4>Profilo Instagram</h4>
+                                <p><a href="https://www.instagram.com/proloco_torrediruggiero/" target="_blank" rel="noopener noreferrer">@proloco_torrediruggiero</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-form-wrap">
+                    <form class="contact-form" id="contact-form">
+                        <div class="form-group">
+                            <label for="name">Nome e Cognome o Ragione Sociale</label>
+                            <input type="text" id="name" name="name" placeholder="Mario Rossi / Azienda" required autocomplete="name">
+                        </div>
+                        <div class="form-group">
+                            <label for="contact-input">Email o Telefono</label>
+                            <input type="text" id="contact-input" name="contact" placeholder="mario.rossi@email.it" required autocomplete="email">
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Messaggio</label>
+                            <textarea id="message" name="message" rows="4" placeholder="Ciao! Vorrei diventare sponsor o proporre un'idea..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary full-width" id="contact-submit-btn">
+                            <i class="fa-solid fa-paper-plane"></i> Invia Messaggio
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="footer-left">
+                <span class="f-brand">Pro Loco Torre di Ruggiero APS</span>
+                <p>Associazione di Promozione Sociale - Al servizio del borgo e delle persone.</p>
+            </div>
+            <div class="footer-right">
+                <div class="social-links-f">
+                    <a href="https://www.facebook.com/p/prolocotorrediruggiero-61594633873034/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/proloco_torrediruggiero/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://whatsapp.com/channel/0029Vb8dpYq5K3zN9giYi612" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                </div>
+                <p class="copyright">© 2026 Pro Loco Torre di Ruggiero APS. Tutti i diritti riservati.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal Avviso Scadenza Tesseramento -->
+    <div class="modal-overlay" id="modal-scadenza" aria-hidden="true">
+        <div class="modal-card">
+            <button class="modal-close" id="modal-close-btn" aria-label="Chiudi">&times;</button>
+            <div class="modal-icon">
+                <i class="fa-solid fa-calendar-xmark"></i>
+            </div>
+            <h3>Campagna Tesseramento Conclusa</h3>
+            <p>
+                I termini per la presentazione della domanda di adesione per l'anno sociale in corso sono <strong>scaduti il 31/08/2026</strong>.
+            </p>
+            <p class="modal-subtext">
+                Per informazioni sulle prossime riaperture o per collaborare con l'associazione, puoi scriverci direttamente nella sezione Contatti.
+            </p>
+            <div class="modal-actions">
+                <a href="#contatti" class="btn btn-primary" id="modal-contact-link">Contatta la Pro Loco</a>
+                <button type="button" class="btn btn-outline-dark" id="modal-dismiss-btn">Chiudi</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Dettaglio Storia Territorio -->
+    <div class="history-modal-overlay" id="history-modal" aria-hidden="true">
+        <div class="history-modal-container">
+            <button class="history-modal-close" id="history-modal-close" aria-label="Chiudi finestra">&times;</button>
+            <div class="history-modal-header" id="history-modal-header"></div>
+            <div class="history-modal-body" id="history-modal-body"></div>
+            <div class="history-modal-footer">
+                <button type="button" class="btn btn-primary" id="history-modal-ok-btn">Ho capito, grazie!</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Lightbox Galleria Foto -->
+    <div class="lightbox-overlay" id="gallery-lightbox" aria-hidden="true">
+        <div class="lightbox-modal">
+            <button class="lightbox-close" id="lightbox-close-btn" aria-label="Chiudi galleria">&times;</button>
+            
+            <div class="lightbox-header">
+                <div>
+                    <span class="lightbox-album-badge" id="lightbox-album-date">Data</span>
+                    <h3 id="lightbox-album-title">Titolo Album</h3>
+                </div>
+                <span class="lightbox-counter" id="lightbox-counter">1 / 1</span>
+            </div>
+
+            <div class="lightbox-stage" id="lightbox-touch-area">
+                <button class="lightbox-nav-btn prev" id="lightbox-prev-btn" aria-label="Foto precedente">
+                    <i class="fa-solid fa-chevron-left"></i>
+                </button>
+                
+                <div class="lightbox-image-wrap">
+                    <img src="" alt="Foto evento" id="lightbox-active-img">
+                </div>
+
+                <button class="lightbox-nav-btn next" id="lightbox-next-btn" aria-label="Foto successiva">
+                    <i class="fa-solid fa-chevron-right"></i>
+                </button>
+            </div>
+
+            <div class="lightbox-thumbnails" id="lightbox-thumbnails"></div>
+        </div>
+    </div>
+
+    <!-- Pop-up di Conferma Invio Nativo -->
+    <div class="modal-overlay" id="contact-success-modal" aria-hidden="true">
+        <div class="modal-card">
+            <button class="modal-close" id="contact-success-close-btn" aria-label="Chiudi">&times;</button>
+            <div class="modal-icon success-icon">
+                <i class="fa-solid fa-paper-plane"></i>
+            </div>
+            <h3>Messaggio Pronto per l'Invio!</h3>
+            <p>
+                Abbiamo preparato l'email con i tuoi dati per la <strong>Pro Loco di Torre di Ruggiero</strong>.
+            </p>
+            <p class="modal-subtext">
+                Si è aperta la tua applicazione di posta: clicca semplicemente su <strong>Invia</strong> per recapitarcela. Ti risponderemo al più presto!
+            </p>
+            <div class="modal-actions">
+                <button type="button" class="btn btn-primary" id="contact-success-ok-btn">Ho capito, grazie!</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Script JS -->
+    <script src="script.js"></script>
+</body>
+</html>
