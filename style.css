@@ -127,6 +127,46 @@ a {
     box-shadow: 0 6px 20px rgba(245, 183, 61, 0.35);
 }
 
+/* --- PULSANTI SOCIAL SPECIFICI --- */
+.btn-social-instagram {
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    color: #ffffff !important;
+    box-shadow: 0 4px 14px rgba(220, 39, 67, 0.35);
+}
+
+.btn-social-instagram:hover,
+.btn-social-instagram:active {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(220, 39, 67, 0.45);
+    filter: brightness(1.08);
+}
+
+.btn-social-facebook {
+    background: #1877f2;
+    color: #ffffff !important;
+    box-shadow: 0 4px 14px rgba(24, 119, 242, 0.35);
+}
+
+.btn-social-facebook:hover,
+.btn-social-facebook:active {
+    background: #166fe5;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(24, 119, 242, 0.45);
+}
+
+.btn-social-whatsapp {
+    background: #25d366;
+    color: #ffffff !important;
+    box-shadow: 0 4px 14px rgba(37, 211, 102, 0.35);
+}
+
+.btn-social-whatsapp:hover,
+.btn-social-whatsapp:active {
+    background: #20bd5a;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.45);
+}
+
 .full-width {
     width: 100%;
 }
@@ -278,12 +318,12 @@ a {
     transform: translateY(-8.5px) rotate(-45deg);
 }
 
-/* IL DRAWER MOBILE È TOTALMENTE NASCOSTO SU PC */
+/* DRAWER MOBILE NASCOSTO SU PC */
 .mobile-drawer {
     display: none !important;
 }
 
-/* --- TASTO TORNA ALLA HOME: NASCOSTO TOTALMENTE SU PC --- */
+/* TASTO TORNA ALLA HOME: NASCOSTO TOTALMENTE SU PC */
 .mobile-back-btn-wrap {
     display: none !important;
 }
@@ -1779,7 +1819,6 @@ body.page-loaded .stat-card:nth-child(3) {
 
 /* ==========================================================================
    SOLO SU MOBILE (SOTTO 992px): SEZIONI DEDICATE, DRAWER TRASPARENTE E PIOGGIA
-   (IL PC RIMANE AL 100% INALTERATO COME DA CODICE SOPRA)
    ========================================================================== */
 @media (max-width: 992px) {
     .nav-links {
