@@ -102,11 +102,14 @@ document.addEventListener('DOMContentLoaded', () => {
                     <i class="fa-solid fa-calendar-check empty-icon"></i>
                     <h3>Prossimi Eventi in Arrivo!</h3>
                     <p>Stiamo definendo il calendario delle prossime iniziative e feste nel borgo. Seguici sui canali social per non perdere le date!</p>
-                    <div class="spotlight-actions" style="justify-content: center;">
-                        <a href="https://www.instagram.com/proloco_torrediruggiero/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                    <div class="spotlight-actions" style="justify-content: center; gap: 12px;">
+                        <a href="https://www.instagram.com/proloco_torrediruggiero/" target="_blank" rel="noopener noreferrer" class="btn btn-social-instagram">
                             <i class="fa-brands fa-instagram"></i> Aggiornamenti su Instagram
                         </a>
-                        <a href="https://whatsapp.com/channel/0029Vb8dpYq5K3zN9giYi612" target="_blank" rel="noopener noreferrer" class="btn btn-gold">
+                        <a href="https://www.facebook.com/p/prolocotorrediruggiero-61594633873034/" target="_blank" rel="noopener noreferrer" class="btn btn-social-facebook">
+                            <i class="fa-brands fa-facebook-f"></i> Aggiornamenti su Facebook
+                        </a>
+                        <a href="https://whatsapp.com/channel/0029Vb8dpYq5K3zN9giYi612" target="_blank" rel="noopener noreferrer" class="btn btn-social-whatsapp">
                             <i class="fa-brands fa-whatsapp"></i> Canale WhatsApp
                         </a>
                     </div>
@@ -159,13 +162,19 @@ document.addEventListener('DOMContentLoaded', () => {
     // ===================================================
     const galleryAlbums = [
         {
-            id: 'cinetorre-ottobre-2026',
-            title: 'CineTorre - Apertura Stagione',
+            id: 'cinetorre-prima-serata',
+            title: 'CineTorre - Prima Serata',
             date: 'Ottobre 2026',
-            desc: 'La prima serata di cinema e comunità con la rassegna CineTorre. Le foto della serata saranno disponibili qui.',
+            desc: 'Gli scatti della prima serata di cinema e comunità al Centro Policulturale con la proiezione di Mamma Mia! Popcorn, divertimento e grande partecipazione.',
             cover: 'cinetorre.jpg',
             photos: [
-                'cinetorre.jpg'
+                'cinetorre.jpg',
+                'cinetorre-1.jpg',
+                'cinetorre-2.jpg',
+                'cinetorre-3.jpg',
+                'cinetorre-4.jpg',
+                'cinetorre-5.jpg',
+                'cinetorre-6.jpg'
             ]
         }
     ];
