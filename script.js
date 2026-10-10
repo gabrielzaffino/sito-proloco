@@ -171,10 +171,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 'cinetorre.jpg',
                 'cinetorre-1.jpg',
                 'cinetorre-2.jpg',
-                'cinetorre-3.png',
+                'cinetorre-3.jpg',
                 'cinetorre-4.jpg',
                 'cinetorre-5.jpg',
-                'cinetorre-6.png'
+                'cinetorre-6.jpg'
             ]
         }
     ];
