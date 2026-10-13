@@ -726,4 +726,27 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+  // ===================================================
+    // CONTATORE VISITE PUBBLICO
+    // ===================================================
+    async function updateVisitCounter() {
+        const counterEl = document.getElementById('visits-count');
+        if (!counterEl) return;
+
+        try {
+            const response = await fetch('https://api.counterapi.dev/v1/prolocotorrediruggiero-it/visits/up');
+            const data = await response.json();
+            if (data && typeof data.count !== 'undefined') {
+                counterEl.textContent = Number(data.count).toLocaleString('it-IT');
+            } else {
+                counterEl.textContent = '1';
+            }
+        } catch (err) {
+            // Se bloccato da un ad-blocker locale, mostra un valore predefinito
+            counterEl.textContent = '1';
+        }
+    }
+
+    updateVisitCounter();
+
 });
