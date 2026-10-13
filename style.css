@@ -2254,4 +2254,27 @@ body.page-loaded .stat-card:nth-child(3) {
         padding: 4px 10px;
         font-size: 0.78rem;
     }
+    /* --- CONTATORE VISITE NEL FOOTER --- */
+.footer-counter {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    padding: 6px 14px;
+    border-radius: 50px;
+    font-size: 0.82rem;
+    color: rgba(255, 255, 255, 0.85);
+    margin-top: 14px;
+}
+
+.footer-counter i {
+    color: var(--gold);
+    font-size: 0.85rem;
+}
+
+.footer-counter strong {
+    color: #ffffff;
+    font-weight: 700;
+}
 }
