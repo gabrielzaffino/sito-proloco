@@ -32,6 +32,14 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     ];
 
+    // Dati locandina programma generale stagionale
+    const seasonProgram = {
+        title: 'CineTorre - Programma della Stagione',
+        image: 'Programma-cinetorre.jpg',
+        imageFallback: 'Programma cinema.JPG',
+        description: 'La Pro-Loco, con il patrocinio del Comune di Torre di Ruggiero, presenta il programma di CineTorre! Scopri tutti gli appuntamenti che ci accompagneranno in questa stagione e preparati a vivere la magia del cinema insieme a noi! Ti aspettiamo a CineTorre!'
+    };
+
     // ===================================================
     // RENDER AUTOMATICO: EVENTI ATTIVI vs EVENTI PASSATI
     // ===================================================
@@ -103,12 +111,22 @@ document.addEventListener('DOMContentLoaded', () => {
                             </div>
                         </div>
                         <div class="spotlight-actions">
-                            <a href="#contatti" class="btn btn-primary"><i class="fa-solid fa-circle-info"></i> Maggiori Informazioni</a>
-                            <a href="#" class="btn btn-outline-dark" id="share-event-btn"><i class="fa-solid fa-share-nodes"></i> Condividi Evento</a>
+                            <button type="button" class="btn btn-gold" id="btn-view-program">
+                                <i class="fa-solid fa-calendar-days"></i> Programma Stagione
+                            </button>
+                            <a href="#" class="btn btn-outline-dark" id="share-event-btn">
+                                <i class="fa-solid fa-share-nodes"></i> Condividi Evento
+                            </a>
                         </div>
                     </div>
                 </div>
             `;
+
+            // Aggancia evento apertura modale programma generale
+            const btnViewProgram = document.getElementById('btn-view-program');
+            if (btnViewProgram) {
+                btnViewProgram.addEventListener('click', openProgramModal);
+            }
         } else {
             spotlightContainer.innerHTML = `
                 <div class="spotlight-empty">
@@ -169,6 +187,86 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     renderEvents();
+
+    // ===================================================
+    // MODAL PROGRAMMA GENERALE CINETORRE (SENZA TREMOLIO & DOWNLOAD SICURO)
+    // ===================================================
+    let programModal = document.getElementById('modal-programma-cinetorre');
+    if (!programModal) {
+        programModal = document.createElement('div');
+        programModal.id = 'modal-programma-cinetorre';
+        programModal.className = 'history-modal-overlay';
+        programModal.setAttribute('aria-hidden', 'true');
+        programModal.innerHTML = `
+            <div class="history-modal-container" style="max-width: 640px; will-change: transform;">
+                <button class="history-modal-close" id="program-modal-close" aria-label="Chiudi finestra">&times;</button>
+                <div class="history-modal-header" style="padding: 24px 28px 16px;">
+                    <span class="h-badge"><i class="fa-solid fa-film"></i> Rassegna Cinema 2026</span>
+                    <h2 style="font-size: 1.6rem; margin-top: 4px;">${seasonProgram.title}</h2>
+                </div>
+                <div class="history-modal-body" style="padding: 20px 28px; text-align: center;">
+                    <p style="font-size: 0.96rem; margin-bottom: 18px; text-align: left; line-height: 1.55; color: #475569;">
+                        ${seasonProgram.description}
+                    </p>
+                    <div style="border-radius: var(--radius-md); overflow: hidden; box-shadow: var(--shadow-lg); background: #071321; margin: 0 auto; max-width: 460px; line-height: 0;">
+                        <img src="${seasonProgram.image}" alt="Locandina Programma CineTorre" style="width: 100%; height: auto; max-height: 52vh; object-fit: contain; display: block;" onerror="this.src='${seasonProgram.imageFallback}'">
+                    </div>
+                </div>
+                <div class="history-modal-footer" style="padding: 14px 28px; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap;">
+                    <a href="${seasonProgram.image}" download="Programma-CineTorre-2026.jpg" target="_blank" rel="noopener noreferrer" class="btn btn-outline-dark" id="btn-download-poster" style="font-size: 0.88rem; padding: 10px 18px;">
+                        <i class="fa-solid fa-download"></i> Scarica Locandina
+                    </a>
+                    <button type="button" class="btn btn-primary" id="program-modal-ok-btn" style="padding: 10px 22px;">Ho capito</button>
+                </div>
+            </div>
+        `;
+        document.body.appendChild(programModal);
+    }
+
+    function openProgramModal() {
+        if (!programModal) return;
+        programModal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeProgramModal() {
+        if (!programModal) return;
+        programModal.classList.remove('active');
+        document.body.style.overflow = 'auto';
+    }
+
+    const programModalClose = document.getElementById('program-modal-close');
+    const programModalOkBtn = document.getElementById('program-modal-ok-btn');
+    if (programModalClose) programModalClose.addEventListener('click', closeProgramModal);
+    if (programModalOkBtn) programModalOkBtn.addEventListener('click', closeProgramModal);
+    programModal.addEventListener('click', (e) => {
+        if (e.target === programModal) closeProgramModal();
+    });
+
+    // Gestione download (Blob con fallback su nuova scheda)
+    const btnDownloadPoster = document.getElementById('btn-download-poster');
+    if (btnDownloadPoster) {
+        btnDownloadPoster.addEventListener('click', async (e) => {
+            if (window.location.protocol.startsWith('http')) {
+                e.preventDefault();
+                try {
+                    const response = await fetch(seasonProgram.image);
+                    if (!response.ok) throw new Error('File non raggiungibile');
+                    const blob = await response.blob();
+                    const blobUrl = URL.createObjectURL(blob);
+                    const tempLink = document.createElement('a');
+                    tempLink.href = blobUrl;
+                    tempLink.download = 'Programma-CineTorre-2026.jpg';
+                    document.body.appendChild(tempLink);
+                    tempLink.click();
+                    document.body.removeChild(tempLink);
+                    URL.revokeObjectURL(blobUrl);
+                } catch (err) {
+                    window.open(seasonProgram.image, '_blank');
+                }
+            }
+        });
+    }
 
     // ===================================================
     // GESTIONE GALLERIA ALBUM FOTOGRAFICA & LIGHTBOX
@@ -356,7 +454,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 150);
 
     const rainTargets = document.querySelectorAll(
-        '.spotlight-wrapper, .section-header, .about-card, .territory-card, .gallery-album-card, .cta-box, .sponsor-cta-box, .contact-info, .contact-form-wrap'
+        '.spotlight-wrapper, .past-events-header, .past-event-card, .section-header, .about-card, .territory-card, .gallery-album-card, .cta-box, .sponsor-cta-box, .contact-info, .contact-form-wrap'
     );
     rainTargets.forEach(el => el.classList.add('rain-item'));
 
@@ -368,8 +466,8 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }, {
-        threshold: 0.1,
-        rootMargin: '0px 0px -30px 0px'
+        threshold: 0.15,
+        rootMargin: '0px 0px -40px 0px'
     });
 
     rainTargets.forEach(el => rainObserver.observe(el));
@@ -419,27 +517,22 @@ document.addEventListener('DOMContentLoaded', () => {
         const targetSection = document.getElementById(targetId);
         if (!targetSection) return;
 
-        // Chiudi il menù mobile
         if (hamburgerBtn && mobileDrawer) {
             hamburgerBtn.classList.remove('open');
             mobileDrawer.classList.remove('open');
             document.body.style.overflow = 'auto';
         }
 
-        // Togli la sezione attiva precedente
         sections.forEach(sec => sec.classList.remove('mobile-active-section'));
 
-        // Riporta lo scroll in cima
         window.scrollTo({ top: 0, behavior: 'instant' });
 
-        // Attiva la nuova sezione facendo scattare l'effetto a cascata
         requestAnimationFrame(() => {
             targetSection.classList.add('mobile-active-section');
             setActiveLink(targetId);
         });
     }
 
-    // Tasto "Torna alla Home" generato su mobile in cima a ogni sezione
     sections.forEach(sec => {
         if (sec.id !== 'hero') {
             const container = sec.querySelector('.container');
@@ -459,7 +552,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Intercetta i click sui link di navigazione
     document.querySelectorAll('a[href^="#"]').forEach(link => {
         link.addEventListener('click', (e) => {
             const href = link.getAttribute('href');
@@ -486,7 +578,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Scroll spy per PC
     const header = document.querySelector('.header');
     window.addEventListener('scroll', () => {
         if (window.scrollY > 30) {
@@ -726,6 +817,7 @@ document.addEventListener('DOMContentLoaded', () => {
             closeHistoryModal();
             closeLightbox();
             closeSuccessModal();
+            closeProgramModal();
         } else if (e.key === 'ArrowLeft' && lightbox && lightbox.classList.contains('active')) {
             if (currentAlbumPhotos.length > 1) {
                 currentPhotoIndex = (currentPhotoIndex - 1 + currentAlbumPhotos.length) % currentAlbumPhotos.length;
@@ -755,7 +847,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 counterEl.textContent = '1';
             }
         } catch (err) {
-            // Se bloccato da un ad-blocker locale, mostra un valore predefinito
             counterEl.textContent = '1';
         }
     }
