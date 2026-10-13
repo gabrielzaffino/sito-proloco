@@ -16,6 +16,19 @@ document.addEventListener('DOMContentLoaded', () => {
             description: 'Inauguriamo la nuova stagione di eventi. Portiamo il cinema in sala per stare insieme, ridere ed emozionarci nel cuore del borgo.',
             posterImage: 'cinetorre.jpg',
             posterFallback: 'cinetorre.png'
+        },
+        {
+            id: 'cinetorre-qualunquemente',
+            title: 'Cinetorre: Qualunquemente',
+            subtitle: 'Cinema & Comunità',
+            dateStr: '2026-10-16', // Venerdì 16 Ottobre 2026
+            dateDisplay: 'Venerdì 16 Ottobre 2026',
+            time: 'Ore 21:00 (Ingresso Libero)',
+            location: 'Centro Policulturale – Loc. Paolello',
+            audience: 'Aperto a tutti: giovani, famiglie e appassionati di cinema',
+            description: 'Nuova serata cinema con la proiezione del film "Qualunquemente". Cetto La Qualunque, un politico corrotto disposto a tutto pur di vincere le elezioni!',
+            posterImage: 'Qualunquemente.jpg',
+            posterFallback: 'Qualunquemente.jpeg'
         }
     ];
 
@@ -726,7 +739,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-  // ===================================================
+    // ===================================================
     // CONTATORE VISITE PUBBLICO
     // ===================================================
     async function updateVisitCounter() {
