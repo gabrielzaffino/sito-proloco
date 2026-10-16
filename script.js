@@ -832,18 +832,22 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // ===================================================
-    // CONTATORE VISITE PUBBLICO (CON TIMEOUT ANTI-BLOCCO)
+    // CONTATORE VISITE PUBBLICO E REALE (INCREMENTO AD OGNI VISITA)
     // ===================================================
     async function updateVisitCounter() {
         const counterEl = document.getElementById('visits-count');
         if (!counterEl) return;
 
-        // Se è già presente un valore base, non bloccare
+        // Namespace unico associato al dominio ufficiale
+        const namespace = 'prolocotorrediruggiero-ufficiale';
+        const key = 'totale_visite';
+
         try {
             const controller = new AbortController();
-            const timeoutId = setTimeout(() => controller.abort(), 1800); // 1.8s timeout per evitare caricamenti infiniti del browser
+            const timeoutId = setTimeout(() => controller.abort(), 2000);
 
-            const response = await fetch('https://api.counterapi.dev/v1/prolocotorrediruggiero-it/visits/up', {
+            // Chiamata all'API: a ogni apertura incrementa il contatore reale di 1
+            const response = await fetch(`https://api.counterapi.dev/v1/${namespace}/${key}/up`, {
                 signal: controller.signal
             });
             clearTimeout(timeoutId);
@@ -853,11 +857,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (data && typeof data.count !== 'undefined') {
                     counterEl.textContent = Number(data.count).toLocaleString('it-IT');
                 }
+            } else {
+                counterEl.textContent = '1';
             }
         } catch (err) {
-            // Se l'API non risponde o va in timeout, non bloccare nulla e mantieni il numero salvato
-            if (!counterEl.textContent || counterEl.textContent === '...') {
-                counterEl.textContent = '1.420';
+            if (!counterEl.textContent || counterEl.textContent === '-') {
+                counterEl.textContent = '1';
             }
         }
     }
