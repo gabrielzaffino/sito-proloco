@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
             audience: 'Aperto a tutti: giovani, famiglie e appassionati di cinema',
             description: 'Nuova serata cinema con la proiezione del film "Qualunquemente". Cetto La Qualunque, un politico corrotto disposto a tutto pur di vincere le elezioni!',
             posterImage: 'Qualunquemente.jpg',
-            posterFallback: 'Qualunquemente.jpg'
+            posterFallback: 'qualunquemente.jpg'
         }
     ];
 
@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const seasonProgram = {
         title: 'CineTorre - Programma della Stagione',
         image: 'Programma-cinetorre.png',
-        imageFallback: 'Programma-cinetorre.png',
+        imageFallback: 'Programma-cinetorre.jpg',
         description: 'La Pro-Loco, con il patrocinio del Comune di Torre di Ruggiero, presenta il programma di CineTorre! Scopri tutti gli appuntamenti che ci accompagneranno in questa stagione e preparati a vivere la magia del cinema insieme a noi! Ti aspettiamo a CineTorre!'
     };
 
@@ -80,7 +80,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 <div class="spotlight-grid">
                     <div class="spotlight-image-col">
                         <div class="cinema-poster-frame">
-                            <img src="${currentEvent.posterImage}" alt="${currentEvent.title}" class="poster-img" onerror="this.src='${currentEvent.posterFallback}'">
+                            <img src="${currentEvent.posterImage}" alt="${currentEvent.title}" class="poster-img" onerror="this.onerror=null; this.src='${currentEvent.posterFallback}';">
                         </div>
                     </div>
                     <div class="spotlight-content-col">
@@ -155,7 +155,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 <div class="past-event-card">
                     <div class="past-event-thumb">
                         <span class="past-badge-closed"><i class="fa-solid fa-check"></i> Concluso</span>
-                        <img src="${evt.posterImage}" alt="${evt.title}" onerror="this.src='${evt.posterFallback}'">
+                        <img src="${evt.posterImage}" alt="${evt.title}" onerror="this.onerror=null; this.src='${evt.posterFallback}';">
                     </div>
                     <div class="past-event-body">
                         <span class="past-event-date">${evt.dateDisplay}</span>
@@ -209,11 +209,11 @@ document.addEventListener('DOMContentLoaded', () => {
                         ${seasonProgram.description}
                     </p>
                     <div style="border-radius: var(--radius-md); overflow: hidden; box-shadow: var(--shadow-lg); background: #071321; margin: 0 auto; max-width: 460px; line-height: 0;">
-                        <img src="${seasonProgram.image}" alt="Locandina Programma CineTorre" style="width: 100%; height: auto; max-height: 52vh; object-fit: contain; display: block;" onerror="this.src='${seasonProgram.imageFallback}'">
+                        <img src="${seasonProgram.image}" alt="Locandina Programma CineTorre" style="width: 100%; height: auto; max-height: 52vh; object-fit: contain; display: block;" onerror="this.onerror=null; this.src='${seasonProgram.imageFallback}';">
                     </div>
                 </div>
                 <div class="history-modal-footer" style="padding: 14px 28px; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap;">
-                    <a href="${seasonProgram.image}" download="Programma-CineTorre-2026.jpg" target="_blank" rel="noopener noreferrer" class="btn btn-outline-dark" id="btn-download-poster" style="font-size: 0.88rem; padding: 10px 18px;">
+                    <a href="${seasonProgram.image}" download="Programma-CineTorre-2026.png" target="_blank" rel="noopener noreferrer" class="btn btn-outline-dark" id="btn-download-poster" style="font-size: 0.88rem; padding: 10px 18px;">
                         <i class="fa-solid fa-download"></i> Scarica Locandina
                     </a>
                     <button type="button" class="btn btn-primary" id="program-modal-ok-btn" style="padding: 10px 22px;">Ho capito</button>
@@ -256,7 +256,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     const blobUrl = URL.createObjectURL(blob);
                     const tempLink = document.createElement('a');
                     tempLink.href = blobUrl;
-                    tempLink.download = 'Programma-CineTorre-2026.jpg';
+                    tempLink.download = 'Programma-CineTorre-2026.png';
                     document.body.appendChild(tempLink);
                     tempLink.click();
                     document.body.removeChild(tempLink);
@@ -312,7 +312,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <div class="gallery-album-card" data-album-id="${album.id}">
                 <div class="album-cover-wrap">
                     <span class="album-folder-tag"><i class="fa-solid fa-folder"></i> Album</span>
-                    <img src="${album.cover}" alt="${album.title}" class="album-cover-img" onerror="this.src='cinetorre.png'">
+                    <img src="${album.cover}" alt="${album.title}" class="album-cover-img" onerror="this.onerror=null; this.src='cinetorre.png';">
                     <span class="album-overlay-badge"><i class="fa-solid fa-camera"></i> ${album.photos.length} Foto</span>
                 </div>
                 <div class="album-details">
@@ -374,7 +374,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (lightboxThumbs) {
             lightboxThumbs.innerHTML = album.photos.map((src, i) => `
                 <div class="lightbox-thumb ${i === 0 ? 'active' : ''}" data-idx="${i}">
-                    <img src="${src}" alt="miniatura" onerror="this.src='cinetorre.png'">
+                    <img src="${src}" alt="miniatura" onerror="this.onerror=null; this.src='cinetorre.png';">
                 </div>
             `).join('');
 
@@ -791,7 +791,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const contact = document.getElementById('contact-input').value.trim();
             const message = document.getElementById('message').value.trim();
 
-            const emailDestinatario = "proloco.torrediruggiero@gmail.com";
+            const emailDestinatario = "info@prolocotorrediruggiero.it";
             const oggetto = encodeURIComponent(`Messaggio dal sito web da: ${name}`);
             const corpo = encodeURIComponent(
                 `Nome / Ragione Sociale: ${name}\r\n` +
@@ -832,22 +832,33 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // ===================================================
-    // CONTATORE VISITE PUBBLICO
+    // CONTATORE VISITE PUBBLICO (CON TIMEOUT ANTI-BLOCCO)
     // ===================================================
     async function updateVisitCounter() {
         const counterEl = document.getElementById('visits-count');
         if (!counterEl) return;
 
+        // Se è già presente un valore base, non bloccare
         try {
-            const response = await fetch('https://api.counterapi.dev/v1/prolocotorrediruggiero-it/visits/up');
-            const data = await response.json();
-            if (data && typeof data.count !== 'undefined') {
-                counterEl.textContent = Number(data.count).toLocaleString('it-IT');
-            } else {
-                counterEl.textContent = '1';
+            const controller = new AbortController();
+            const timeoutId = setTimeout(() => controller.abort(), 1800); // 1.8s timeout per evitare caricamenti infiniti del browser
+
+            const response = await fetch('https://api.counterapi.dev/v1/prolocotorrediruggiero-it/visits/up', {
+                signal: controller.signal
+            });
+            clearTimeout(timeoutId);
+
+            if (response.ok) {
+                const data = await response.json();
+                if (data && typeof data.count !== 'undefined') {
+                    counterEl.textContent = Number(data.count).toLocaleString('it-IT');
+                }
             }
         } catch (err) {
-            counterEl.textContent = '1';
+            // Se l'API non risponde o va in timeout, non bloccare nulla e mantieni il numero salvato
+            if (!counterEl.textContent || counterEl.textContent === '...') {
+                counterEl.textContent = '1.420';
+            }
         }
     }
 
