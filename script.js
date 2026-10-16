@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
             audience: 'Aperto a tutti: giovani, famiglie e appassionati di cinema',
             description: 'Nuova serata cinema con la proiezione del film "Qualunquemente". Cetto La Qualunque, un politico corrotto disposto a tutto pur di vincere le elezioni!',
             posterImage: 'Qualunquemente.jpg',
-            posterFallback: 'Qualunquemente.jpeg'
+            posterFallback: 'Qualunquemente.jpg'
         }
     ];
 
