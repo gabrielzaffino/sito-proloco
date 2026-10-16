@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const seasonProgram = {
         title: 'CineTorre - Programma della Stagione',
         image: 'Programma-cinetorre.png',
-        imageFallback: 'Programma cinema.png',
+        imageFallback: 'Programma-cinetorre.png',
         description: 'La Pro-Loco, con il patrocinio del Comune di Torre di Ruggiero, presenta il programma di CineTorre! Scopri tutti gli appuntamenti che ci accompagneranno in questa stagione e preparati a vivere la magia del cinema insieme a noi! Ti aspettiamo a CineTorre!'
     };
 
