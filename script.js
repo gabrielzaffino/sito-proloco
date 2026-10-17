@@ -129,23 +129,37 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         } else {
             spotlightContainer.innerHTML = `
-                <div class="spotlight-empty">
-                    <i class="fa-solid fa-calendar-check empty-icon"></i>
-                    <h3>Prossimi Eventi in Arrivo!</h3>
-                    <p>Stiamo definendo il calendario delle prossime iniziative e feste nel borgo. Seguici sui canali social per non perdere le date!</p>
-                    <div class="spotlight-actions" style="justify-content: center; gap: 12px;">
-                        <a href="https://www.instagram.com/proloco_torrediruggiero/" target="_blank" rel="noopener noreferrer" class="btn btn-social-instagram">
-                            <i class="fa-brands fa-instagram"></i> Aggiornamenti su Instagram
-                        </a>
-                        <a href="https://www.facebook.com/p/prolocotorrediruggiero-61594633873034/" target="_blank" rel="noopener noreferrer" class="btn btn-social-facebook">
-                            <i class="fa-brands fa-facebook-f"></i> Aggiornamenti su Facebook
-                        </a>
-                        <a href="https://whatsapp.com/channel/0029Vb8dpYq5K3zN9giYi612" target="_blank" rel="noopener noreferrer" class="btn btn-social-whatsapp">
-                            <i class="fa-brands fa-whatsapp"></i> Canale WhatsApp
-                        </a>
+                <div class="spotlight-empty" style="text-align: center; padding: 44px 20px;">
+                    <div style="width: 64px; height: 64px; background: #fff7ed; color: #ea580c; border-radius: 18px; display: inline-flex; align-items: center; justify-content: center; font-size: 1.8rem; margin-bottom: 18px; box-shadow: 0 4px 14px rgba(234, 88, 12, 0.15);">
+                        <i class="fa-solid fa-film"></i>
+                    </div>
+                    <h3 style="font-size: 1.75rem; font-weight: 800; color: #0f172a; margin-bottom: 10px;">In attesa dei prossimi eventi...</h3>
+                    <p style="color: #64748b; font-size: 1.02rem; max-width: 580px; margin: 0 auto 26px; line-height: 1.6;">
+                        Stiamo definendo il calendario delle prossime iniziative nel borgo. Nel frattempo, consulta il nostro programma cinema e seguici sui canali ufficiali!
+                    </p>
+                    <div class="spotlight-actions" style="display: flex; justify-content: center; align-items: center; gap: 14px; flex-wrap: wrap;">
+                        <button type="button" class="btn btn-gold" id="btn-view-program-empty" style="padding: 12px 24px; font-weight: 700; display: inline-flex; align-items: center; gap: 8px; font-size: 0.95rem;">
+                            <i class="fa-solid fa-calendar-days"></i> Programma Cinema
+                        </button>
+                        <div style="display: inline-flex; align-items: center; gap: 12px;">
+                            <a href="https://whatsapp.com/channel/0029Vb8dpYq5K3zN9giYi612" target="_blank" rel="noopener noreferrer" title="Canale WhatsApp" aria-label="WhatsApp" style="width: 44px; height: 44px; border-radius: 50%; background: #25d366; color: #ffffff; display: inline-flex; align-items: center; justify-content: center; font-size: 1.35rem; text-decoration: none; box-shadow: 0 4px 12px rgba(37, 211, 102, 0.35); transition: transform 0.2s, box-shadow 0.2s;">
+                                <i class="fa-brands fa-whatsapp"></i>
+                            </a>
+                            <a href="https://www.instagram.com/proloco_torrediruggiero/" target="_blank" rel="noopener noreferrer" title="Profilo Instagram" aria-label="Instagram" style="width: 44px; height: 44px; border-radius: 50%; background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); color: #ffffff; display: inline-flex; align-items: center; justify-content: center; font-size: 1.35rem; text-decoration: none; box-shadow: 0 4px 12px rgba(220, 39, 67, 0.35); transition: transform 0.2s, box-shadow 0.2s;">
+                                <i class="fa-brands fa-instagram"></i>
+                            </a>
+                            <a href="https://www.facebook.com/p/prolocotorrediruggiero-61594633873034/" target="_blank" rel="noopener noreferrer" title="Pagina Facebook" aria-label="Facebook" style="width: 44px; height: 44px; border-radius: 50%; background: #1877f2; color: #ffffff; display: inline-flex; align-items: center; justify-content: center; font-size: 1.3rem; text-decoration: none; box-shadow: 0 4px 12px rgba(24, 119, 242, 0.35); transition: transform 0.2s, box-shadow 0.2s;">
+                                <i class="fa-brands fa-facebook-f"></i>
+                            </a>
+                        </div>
                     </div>
                 </div>
             `;
+
+            const btnViewProgramEmpty = document.getElementById('btn-view-program-empty');
+            if (btnViewProgramEmpty) {
+                btnViewProgramEmpty.addEventListener('click', openProgramModal);
+            }
         }
 
         // 2. Archivio Eventi Precedenti
@@ -861,6 +875,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 counterEl.textContent = '1';
             }
         } catch (err) {
+            // In caso di adblock o timeout di rete
             if (!counterEl.textContent || counterEl.textContent === '-') {
                 counterEl.textContent = '1';
             }
