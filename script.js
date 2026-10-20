@@ -1003,57 +1003,42 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
   // ===================================================
-    // CONTATORE VISITE REALE (AUTO-CREAZIONE E INCREMENTO)
+    // CONTATORE VISITE PUBBLICO E REALE (INCREMENTO EFFETTIVO)
     // ===================================================
     async function updateVisitCounter() {
         const counterEl = document.getElementById('visits-count');
         if (!counterEl) return;
 
-        const namespace = 'prolocotorrediruggiero.it';
-        const key = 'visite';
-        
-        // Recupera l'ultimo valore salvato localmente per non mostrare mai 1 in caso di errore
-        const savedVisits = localStorage.getItem('last_known_visits');
-        if (savedVisits) {
-            counterEl.textContent = Number(savedVisits).toLocaleString('it-IT');
-        }
+        // Namespace univoco del tuo sito
+        const siteKey = 'prolocotorrediruggiero-2026-visit-counter';
 
         try {
-            const controller = new AbortController();
-            const timeoutId = setTimeout(() => controller.abort(), 2500);
+            // Controlla se la visita è già stata contata in questa sessione
+            const alreadyCounted = sessionStorage.getItem('visited_session');
+            const action = alreadyCounted ? 'get' : 'hit';
 
-            // 1. Prova a incrementare il contatore
-            let response = await fetch(`https://api.counterapi.dev/v1/${namespace}/${key}/up`, {
-                signal: controller.signal
-            });
-
-            // 2. Se riceve 404 (chiave non ancora creata), la crea partendo da 1
-            if (response.status === 404) {
-                response = await fetch(`https://api.counterapi.dev/v1/${namespace}/${key}`, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ count: 1 })
-                });
-            }
-
-            clearTimeout(timeoutId);
-
-            if (response.ok) {
-                const data = await response.json();
-                if (data && typeof data.count !== 'undefined') {
-                    const total = Number(data.count);
-                    counterEl.textContent = total.toLocaleString('it-IT');
-                    localStorage.setItem('last_known_visits', total);
+            // Servizio API pubblico diretto (CountAPI libera)
+            const res = await fetch(`https://api.codetabs.com/v1/counter?key=${siteKey}&action=${action}`);
+            
+            if (res.ok) {
+                const data = await res.json();
+                const total = data.count || data.value || data;
+                if (!isNaN(total)) {
+                    counterEl.textContent = Number(total).toLocaleString('it-IT');
+                    sessionStorage.setItem('visited_session', 'true');
+                    localStorage.setItem('cached_visits', total);
                     return;
                 }
             }
-        } catch (err) {
-            console.warn('Contatore visite non raggiungibile:', err.message);
+        } catch (e) {
+            // Se c'è un blocco di rete o estensione adblock
+            console.warn('Contatore offline:', e);
         }
 
-        // Fallback di riserva se la rete o l'adblock bloccano l'API
-        if (!counterEl.textContent || counterEl.textContent === '-' || counterEl.textContent === '...') {
-            counterEl.textContent = savedVisits ? Number(savedVisits).toLocaleString('it-IT') : '1';
+        // Se l'API è bloccata da adblock, mostra l'ultimo dato memorizzato
+        const cached = localStorage.getItem('cached_visits');
+        if (cached) {
+            counterEl.textContent = Number(cached).toLocaleString('it-IT');
         }
     }
 
