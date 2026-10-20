@@ -6,9 +6,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const eventsList = [
         {
             id: 'cinetorre-mammamia',
-            title: 'CineTorre',
+            title: 'CineTorre: Mamma mia!',
             subtitle: 'Cinema & Comunità',
-            dateStr: '2026-10-09', // Venerdì 9 Ottobre 2026
+            dateStr: '2026-10-09',
             dateDisplay: 'Venerdì 9 Ottobre 2026',
             time: 'Ore 21:00 (Ingresso Libero)',
             location: 'Centro Policulturale Località Paolello',
@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
             id: 'cinetorre-qualunquemente',
             title: 'Cinetorre: Qualunquemente',
             subtitle: 'Cinema & Comunità',
-            dateStr: '2026-10-16', // Venerdì 16 Ottobre 2026
+            dateStr: '2026-10-16',
             dateDisplay: 'Venerdì 16 Ottobre 2026',
             time: 'Ore 21:00 (Ingresso Libero)',
             location: 'Centro Policulturale – Loc. Paolello',
@@ -29,6 +29,32 @@ document.addEventListener('DOMContentLoaded', () => {
             description: 'Nuova serata cinema con la proiezione del film "Qualunquemente". Cetto La Qualunque, un politico corrotto disposto a tutto pur di vincere le elezioni!',
             posterImage: 'Qualunquemente.jpg',
             posterFallback: 'qualunquemente.jpg'
+        },
+        {
+            id: 'cinetorre-gran-torino',
+            title: 'Cinetorre: Gran Torino',
+            subtitle: 'Cinema & Comunità',
+            dateStr: '2026-10-23',
+            dateDisplay: 'Venerdì 23 Ottobre 2026',
+            time: 'Ore 21:00 (Ingresso Libero)',
+            location: 'Centro Policulturale – Loc. Paolello',
+            audience: 'Aperto a tutti: giovani, famiglie e appassionati di cinema',
+            description: 'Un veterano burbero, una leggendaria auto del ’72 e un quartiere in continuo cambiamento. Gran Torino è un capolavoro intenso e commovente sul superamento dei pregiudizi, amicizia e grande cinema.',
+            posterImage: 'gran-torino.jpg',
+            posterFallback: 'gran-torino.png'
+        },
+        {
+            id: 'torreween-party-2026',
+            title: 'Torreween Party 2026',
+            subtitle: 'Festa di Halloween & Comunità',
+            dateStr: '2026-10-31',
+            dateDisplay: 'Sabato 31 Ottobre 2026',
+            time: 'Ore 15:30',
+            location: 'Ritrovo Loc. San Sebastiano → Piazza del Popolo',
+            audience: 'Grandi e piccini rigorosamente tutti travestiti!',
+            description: 'Festeggiamo insieme il giorno più spaventoso dell\'anno! Spaventosa sfilata in maschera tra le vie del paese e arrivo in Piazza del Popolo con merenda per tutti, animazione, giochi e angolo foto a tema. In caso di maltempo, la festa si svolgerà presso la Sala Consiliare.',
+            posterImage: 'torreween.jpg',
+            posterFallback: 'torreween.png'
         }
     ];
 
@@ -43,6 +69,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // ===================================================
     // RENDER AUTOMATICO: EVENTI ATTIVI vs EVENTI PASSATI
     // ===================================================
+    let upcomingEvents = [];
+    let currentEventIndex = 0;
+
     function renderEvents() {
         const spotlightContainer = document.getElementById('spotlight-container');
         const pastEventsWrap = document.getElementById('past-events-wrap');
@@ -53,7 +82,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const now = new Date();
         const todayDateOnly = new Date(now.getFullYear(), now.getMonth(), now.getDate());
 
-        const upcomingEvents = [];
+        upcomingEvents = [];
         const pastEvents = [];
 
         eventsList.forEach(event => {
@@ -70,63 +99,12 @@ document.addEventListener('DOMContentLoaded', () => {
         upcomingEvents.sort((a, b) => new Date(a.dateStr) - new Date(b.dateStr));
         pastEvents.sort((a, b) => new Date(b.dateStr) - new Date(a.dateStr));
 
-        // 1. Riquadro In Evidenza
+        // 1. Riquadro Eventi in Programma (con Slider e Frecce)
         if (upcomingEvents.length > 0) {
-            const currentEvent = upcomingEvents[0];
-            spotlightContainer.innerHTML = `
-                <div class="spotlight-tag">
-                    <i class="fa-solid fa-bullhorn"></i> In programma • ${currentEvent.dateDisplay}
-                </div>
-                <div class="spotlight-grid">
-                    <div class="spotlight-image-col">
-                        <div class="cinema-poster-frame">
-                            <img src="${currentEvent.posterImage}" alt="${currentEvent.title}" class="poster-img" onerror="this.onerror=null; this.src='${currentEvent.posterFallback}';">
-                        </div>
-                    </div>
-                    <div class="spotlight-content-col">
-                        <span class="sub-heading">${currentEvent.subtitle}</span>
-                        <h2 class="spotlight-title">${currentEvent.title}</h2>
-                        <p class="spotlight-text">${currentEvent.description}</p>
-                        <div class="event-details-grid">
-                            <div class="detail-item">
-                                <i class="fa-solid fa-clock"></i>
-                                <div>
-                                    <strong>Orario d'Inizio</strong>
-                                    <span>${currentEvent.time}</span>
-                                </div>
-                            </div>
-                            <div class="detail-item">
-                                <i class="fa-solid fa-location-dot"></i>
-                                <div>
-                                    <strong>Luogo</strong>
-                                    <span>${currentEvent.location}</span>
-                                </div>
-                            </div>
-                            <div class="detail-item">
-                                <i class="fa-solid fa-users"></i>
-                                <div>
-                                    <strong>Partecipazione</strong>
-                                    <span>${currentEvent.audience}</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="spotlight-actions">
-                            <button type="button" class="btn btn-gold" id="btn-view-program">
-                                <i class="fa-solid fa-calendar-days"></i> Programma Stagione
-                            </button>
-                            <a href="#" class="btn btn-outline-dark" id="share-event-btn">
-                                <i class="fa-solid fa-share-nodes"></i> Condividi Evento
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            `;
-
-            // Aggancia evento apertura modale programma generale
-            const btnViewProgram = document.getElementById('btn-view-program');
-            if (btnViewProgram) {
-                btnViewProgram.addEventListener('click', openProgramModal);
+            if (currentEventIndex >= upcomingEvents.length) {
+                currentEventIndex = 0;
             }
+            updateSpotlightCard();
         } else {
             spotlightContainer.innerHTML = `
                 <div class="spotlight-empty" style="text-align: center; padding: 44px 20px;">
@@ -181,15 +159,177 @@ document.addEventListener('DOMContentLoaded', () => {
         } else if (pastEventsWrap) {
             pastEventsWrap.style.display = 'none';
         }
+    }
 
+    function updateSpotlightCard() {
+        const spotlightContainer = document.getElementById('spotlight-container');
+        if (!spotlightContainer || upcomingEvents.length === 0) return;
+
+        const currentEvent = upcomingEvents[currentEventIndex];
+        const total = upcomingEvents.length;
+
+        // Costruiamo barra di navigazione con frecce e pallini se ci sono più eventi
+        let sliderControlsHtml = '';
+        if (total > 1) {
+            const dotsHtml = upcomingEvents.map((ev, idx) => `
+                <button type="button" class="slider-dot-btn ${idx === currentEventIndex ? 'active' : ''}" data-event-idx="${idx}" aria-label="Vai a evento ${idx + 1}" style="width: ${idx === currentEventIndex ? '28px' : '10px'}; height: 10px; border-radius: 9999px; background: ${idx === currentEventIndex ? '#ea580c' : '#cbd5e1'}; border: none; cursor: pointer; transition: all 0.3s ease; padding: 0;"></button>
+            `).join('');
+
+            sliderControlsHtml = `
+                <div class="events-slider-header" style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; flex-wrap: wrap; gap: 12px;">
+                    <div class="spotlight-tag" style="margin-bottom: 0;">
+                        <i class="fa-solid fa-bullhorn"></i> In programma • ${currentEvent.dateDisplay}
+                    </div>
+                    <div class="events-slider-nav" style="display: inline-flex; align-items: center; gap: 10px;">
+                        <span style="font-size: 0.85rem; font-weight: 700; color: #64748b; margin-right: 4px;">Evento ${currentEventIndex + 1} di ${total}</span>
+                        <button type="button" id="prev-event-btn" class="slider-arrow-btn" aria-label="Evento precedente" style="width: 38px; height: 38px; border-radius: 50%; background: #ffffff; border: 1.5px solid #cbd5e1; color: #0f172a; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; font-size: 0.95rem; box-shadow: 0 2px 6px rgba(0,0,0,0.06); transition: all 0.2s ease;">
+                            <i class="fa-solid fa-chevron-left"></i>
+                        </button>
+                        <button type="button" id="next-event-btn" class="slider-arrow-btn" aria-label="Prossimo evento" style="width: 38px; height: 38px; border-radius: 50%; background: #ffffff; border: 1.5px solid #cbd5e1; color: #0f172a; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; font-size: 0.95rem; box-shadow: 0 2px 6px rgba(0,0,0,0.06); transition: all 0.2s ease;">
+                            <i class="fa-solid fa-chevron-right"></i>
+                        </button>
+                    </div>
+                </div>
+            `;
+        } else {
+            sliderControlsHtml = `
+                <div class="spotlight-tag">
+                    <i class="fa-solid fa-bullhorn"></i> In programma • ${currentEvent.dateDisplay}
+                </div>
+            `;
+        }
+
+        // Paginazione a pallini in basso
+        let dotsContainerHtml = '';
+        if (total > 1) {
+            const dots = upcomingEvents.map((ev, idx) => `
+                <button type="button" class="slider-dot-btn ${idx === currentEventIndex ? 'active' : ''}" data-event-idx="${idx}" aria-label="Vai a evento ${idx + 1}" style="width: ${idx === currentEventIndex ? '28px' : '10px'}; height: 10px; border-radius: 9999px; background: ${idx === currentEventIndex ? '#ea580c' : '#cbd5e1'}; border: none; cursor: pointer; transition: all 0.3s ease; padding: 0;"></button>
+            `).join('');
+            dotsContainerHtml = `
+                <div class="slider-dots-wrapper" style="display: flex; justify-content: center; align-items: center; gap: 8px; margin-top: 22px;">
+                    ${dots}
+                </div>
+            `;
+        }
+
+        spotlightContainer.innerHTML = `
+            ${sliderControlsHtml}
+            <div class="spotlight-grid" id="spotlight-card-content" style="position: relative;">
+                <div class="spotlight-image-col">
+                    <div class="cinema-poster-frame">
+                        <img src="${currentEvent.posterImage}" alt="${currentEvent.title}" class="poster-img" onerror="this.onerror=null; this.src='${currentEvent.posterFallback}';">
+                    </div>
+                </div>
+                <div class="spotlight-content-col">
+                    <span class="sub-heading">${currentEvent.subtitle}</span>
+                    <h2 class="spotlight-title">${currentEvent.title}</h2>
+                    <p class="spotlight-text">${currentEvent.description}</p>
+                    <div class="event-details-grid">
+                        <div class="detail-item">
+                            <i class="fa-solid fa-clock"></i>
+                            <div>
+                                <strong>Orario d'Inizio</strong>
+                                <span>${currentEvent.time}</span>
+                            </div>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fa-solid fa-location-dot"></i>
+                            <div>
+                                <strong>Luogo</strong>
+                                <span>${currentEvent.location}</span>
+                            </div>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fa-solid fa-users"></i>
+                            <div>
+                                <strong>Partecipazione</strong>
+                                <span>${currentEvent.audience}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="spotlight-actions">
+                        <button type="button" class="btn btn-gold" id="btn-view-program">
+                            <i class="fa-solid fa-calendar-days"></i> Programma Stagione
+                        </button>
+                        <a href="#" class="btn btn-outline-dark" id="share-event-btn">
+                            <i class="fa-solid fa-share-nodes"></i> Condividi Evento
+                        </a>
+                    </div>
+                </div>
+            </div>
+            ${dotsContainerHtml}
+        `;
+
+        // Aggancio apertura programma generale
+        const btnViewProgram = document.getElementById('btn-view-program');
+        if (btnViewProgram) {
+            btnViewProgram.addEventListener('click', openProgramModal);
+        }
+
+        // Aggancio frecce avanti e indietro
+        const prevBtn = document.getElementById('prev-event-btn');
+        const nextBtn = document.getElementById('next-event-btn');
+
+        if (prevBtn) {
+            prevBtn.addEventListener('click', () => {
+                currentEventIndex = (currentEventIndex - 1 + upcomingEvents.length) % upcomingEvents.length;
+                updateSpotlightCard();
+            });
+        }
+
+        if (nextBtn) {
+            nextBtn.addEventListener('click', () => {
+                currentEventIndex = (currentEventIndex + 1) % upcomingEvents.length;
+                updateSpotlightCard();
+            });
+        }
+
+        // Aggancio click sui pallini
+        const dotBtns = spotlightContainer.querySelectorAll('.slider-dot-btn');
+        dotBtns.forEach(dot => {
+            dot.addEventListener('click', () => {
+                const targetIdx = parseInt(dot.getAttribute('data-event-idx'));
+                if (!isNaN(targetIdx) && targetIdx !== currentEventIndex) {
+                    currentEventIndex = targetIdx;
+                    updateSpotlightCard();
+                }
+            });
+        });
+
+        // Gestione swipe touch mobile sulla card
+        const cardStage = document.getElementById('spotlight-card-content');
+        if (cardStage && total > 1) {
+            let startX = 0;
+            let endX = 0;
+
+            cardStage.addEventListener('touchstart', (e) => {
+                startX = e.changedTouches[0].screenX;
+            }, { passive: true });
+
+            cardStage.addEventListener('touchend', (e) => {
+                endX = e.changedTouches[0].screenX;
+                const diff = endX - startX;
+                if (diff < -45) {
+                    // Swipe verso sinistra -> prossimo
+                    currentEventIndex = (currentEventIndex + 1) % upcomingEvents.length;
+                    updateSpotlightCard();
+                } else if (diff > 45) {
+                    // Swipe verso destra -> precedente
+                    currentEventIndex = (currentEventIndex - 1 + upcomingEvents.length) % upcomingEvents.length;
+                    updateSpotlightCard();
+                }
+            }, { passive: true });
+        }
+
+        // Condividi Evento
         const shareBtn = document.getElementById('share-event-btn');
         if (shareBtn) {
             shareBtn.addEventListener('click', (e) => {
                 e.preventDefault();
                 if (navigator.share) {
                     navigator.share({
-                        title: 'Evento Pro Loco Torre di Ruggiero',
-                        text: 'Guarda il prossimo evento della Pro Loco di Torre di Ruggiero!',
+                        title: `${currentEvent.title} - Pro Loco Torre di Ruggiero`,
+                        text: `${currentEvent.title} a Torre di Ruggiero: ${currentEvent.dateDisplay} alle ${currentEvent.time}!`,
                         url: window.location.href
                     }).catch(() => {});
                 } else {
@@ -257,7 +397,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (e.target === programModal) closeProgramModal();
     });
 
-    // Gestione download (Blob con fallback su nuova scheda)
+    // Gestione download
     const btnDownloadPoster = document.getElementById('btn-download-poster');
     if (btnDownloadPoster) {
         btnDownloadPoster.addEventListener('click', async (e) => {
@@ -287,9 +427,26 @@ document.addEventListener('DOMContentLoaded', () => {
     // ===================================================
     const galleryAlbums = [
         {
+            id: 'cinetorre-qualunquemente',
+            title: 'CineTorre - Qualunquemente',
+            date: '16 Ottobre 2026',
+            desc: 'Le risate e i momenti condivisi durante la seconda serata di CineTorre con la divertentissima proiezione di Qualunquemente al Centro Policulturale!',
+            cover: 'Qualunquemente.jpg',
+            photos: [
+                'Qualunquemente.jpg',
+                'qualunquemente-1.jpg',
+                'qualunquemente-2.jpg',
+                'qualunquemente-3.jpg',
+                'qualunquemente-4.jpg',
+                'qualunquemente-5.jpg',
+                'qualunquemente-6.jpg',
+                'qualunquemente-7.jpg'
+            ]
+        },
+        {
             id: 'cinetorre-prima-serata',
             title: 'CineTorre - Prima Serata',
-            date: 'Ottobre 2026',
+            date: '9 Ottobre 2026',
             desc: 'Gli scatti della prima serata di cinema e comunità al Centro Policulturale con la proiezione di Mamma Mia! Popcorn, divertimento e grande partecipazione.',
             cover: 'cinetorre.jpg',
             photos: [
@@ -845,40 +1002,58 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // ===================================================
-    // CONTATORE VISITE PUBBLICO E REALE (INCREMENTO AD OGNI VISITA)
+  // ===================================================
+    // CONTATORE VISITE REALE (AUTO-CREAZIONE E INCREMENTO)
     // ===================================================
     async function updateVisitCounter() {
         const counterEl = document.getElementById('visits-count');
         if (!counterEl) return;
 
-        // Namespace unico associato al dominio ufficiale
-        const namespace = 'prolocotorrediruggiero-ufficiale';
-        const key = 'totale_visite';
+        const namespace = 'prolocotorrediruggiero.it';
+        const key = 'visite';
+        
+        // Recupera l'ultimo valore salvato localmente per non mostrare mai 1 in caso di errore
+        const savedVisits = localStorage.getItem('last_known_visits');
+        if (savedVisits) {
+            counterEl.textContent = Number(savedVisits).toLocaleString('it-IT');
+        }
 
         try {
             const controller = new AbortController();
-            const timeoutId = setTimeout(() => controller.abort(), 2000);
+            const timeoutId = setTimeout(() => controller.abort(), 2500);
 
-            // Chiamata all'API: a ogni apertura incrementa il contatore reale di 1
-            const response = await fetch(`https://api.counterapi.dev/v1/${namespace}/${key}/up`, {
+            // 1. Prova a incrementare il contatore
+            let response = await fetch(`https://api.counterapi.dev/v1/${namespace}/${key}/up`, {
                 signal: controller.signal
             });
+
+            // 2. Se riceve 404 (chiave non ancora creata), la crea partendo da 1
+            if (response.status === 404) {
+                response = await fetch(`https://api.counterapi.dev/v1/${namespace}/${key}`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ count: 1 })
+                });
+            }
+
             clearTimeout(timeoutId);
 
             if (response.ok) {
                 const data = await response.json();
                 if (data && typeof data.count !== 'undefined') {
-                    counterEl.textContent = Number(data.count).toLocaleString('it-IT');
+                    const total = Number(data.count);
+                    counterEl.textContent = total.toLocaleString('it-IT');
+                    localStorage.setItem('last_known_visits', total);
+                    return;
                 }
-            } else {
-                counterEl.textContent = '1';
             }
         } catch (err) {
-            // In caso di adblock o timeout di rete
-            if (!counterEl.textContent || counterEl.textContent === '-') {
-                counterEl.textContent = '1';
-            }
+            console.warn('Contatore visite non raggiungibile:', err.message);
+        }
+
+        // Fallback di riserva se la rete o l'adblock bloccano l'API
+        if (!counterEl.textContent || counterEl.textContent === '-' || counterEl.textContent === '...') {
+            counterEl.textContent = savedVisits ? Number(savedVisits).toLocaleString('it-IT') : '1';
         }
     }
 
