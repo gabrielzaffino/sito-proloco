@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         {
             id: 'cinetorre-qualunquemente',
-            title: 'Cinetorre: Qualunquemente',
+            title: 'CineTorre: Qualunquemente',
             subtitle: 'Cinema & Comunità',
             dateStr: '2026-10-16',
             dateDisplay: 'Venerdì 16 Ottobre 2026',
@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         {
             id: 'cinetorre-gran-torino',
-            title: 'Cinetorre: Gran Torino',
+            title: 'CineTorre: Gran Torino',
             subtitle: 'Cinema & Comunità',
             dateStr: '2026-10-23',
             dateDisplay: 'Venerdì 23 Ottobre 2026',
@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         {
             id: 'cinetorre-ghosts-of-the-abyss',
-            title: 'Cinetorre: Ghosts of the Abyss',
+            title: 'CineTorre: Ghosts of the Abyss',
             subtitle: 'Cinema & Comunità',
             dateStr: '2026-10-30',
             dateDisplay: 'Venerdì 30 Ottobre 2026',
