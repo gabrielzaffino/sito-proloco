@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const eventsList = [
         {
             id: 'cinetorre-mammamia',
-            title: 'CineTorre',
+            title: 'CineTorre: Mamma mia!',
             subtitle: 'Cinema & Comunità',
             dateStr: '2026-10-09',
             dateDisplay: 'Venerdì 9 Ottobre 2026',
