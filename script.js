@@ -55,7 +55,21 @@ document.addEventListener('DOMContentLoaded', () => {
             description: 'Festeggiamo insieme il giorno più spaventoso dell\'anno! Spaventosa sfilata in maschera tra le vie del paese e arrivo in Piazza del Popolo con merenda per tutti, animazione, giochi e angolo foto a tema. In caso di maltempo, la festa si svolgerà presso la Sala Consiliare.',
             posterImage: 'torreween.jpg',
             posterFallback: 'torreween.png'
+        },
+        {
+            id: 'cinetorre-ghosts-of-the-abyss',
+            title: 'Cinetorre: Ghosts of the Abyss',
+            subtitle: 'Cinema & Comunità',
+            dateStr: '2026-10-30',
+            dateDisplay: 'Venerdì 30 Ottobre 2026',
+            time: 'Ore 21:00 (Ingresso Libero)',
+            location: 'Centro Policulturale – Loc. Paolello',
+            audience: 'Aperto a tutti: giovani, famiglie e appassionati di cinema',
+            description: 'Profondità abissali, tecnologia 3D e il mito del Titanic come non l\'avete mai visto. James Cameron ci riporta a 4.000 metri sotto il mare: un viaggio spettacolare tra storia e mistero.',
+            posterImage: 'ghosts.jpg',
+            posterFallback: 'ghosts.jpg'
         }
+    
     ];
 
     // Dati locandina programma generale stagionale
@@ -445,7 +459,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         {
             id: 'cinetorre-prima-serata',
-            title: 'CineTorre - Prima Serata',
+            title: 'CineTorre - Mamma mia!',
             date: '9 Ottobre 2026',
             desc: 'Gli scatti della prima serata di cinema e comunità al Centro Policulturale con la proiezione di Mamma Mia! Popcorn, divertimento e grande partecipazione.',
             cover: 'cinetorre.jpg',
@@ -1002,56 +1016,38 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-// ===================================================
-    // CONTATORE VISITE REALE E AFFIDABILE
+    // ===================================================
+    // CONTATORE VISITE PUBBLICO E REALE (INCREMENTO AD OGNI VISITA)
     // ===================================================
     async function updateVisitCounter() {
         const counterEl = document.getElementById('visits-count');
         if (!counterEl) return;
 
-        // Base di partenza reale per il lancio del nuovo sito
-        const BASE_VISITS = 42; 
-        
-        let visits = parseInt(localStorage.getItem('plr_site_visits') || '0', 10);
-        const lastVisitTime = parseInt(localStorage.getItem('plr_last_visit_time') || '0', 10);
-        const now = Date.now();
+        const namespace = 'prolocotorrediruggiero-ufficiale';
+        const key = 'totale_visite';
 
-        // Incrementa la visita se sono passati almeno 5 minuti dall'ultima o se è una nuova sessione
-        const isNewSession = !sessionStorage.getItem('plr_session_active');
-        if (isNewSession || (now - lastVisitTime > 5 * 60 * 1000)) {
-            visits = (visits === 0 ? BASE_VISITS : visits) + 1;
-            sessionStorage.setItem('plr_session_active', 'true');
-            localStorage.setItem('plr_site_visits', visits);
-            localStorage.setItem('plr_last_visit_time', now);
-        } else if (visits === 0) {
-            visits = BASE_VISITS;
-            localStorage.setItem('plr_site_visits', visits);
-        }
-
-        // Prova a sincronizzare con il server pubblico
         try {
             const controller = new AbortController();
-            const timeoutId = setTimeout(() => controller.abort(), 1800);
+            const timeoutId = setTimeout(() => controller.abort(), 2000);
 
-            const res = await fetch('https://api.codetabs.com/v1/counter?key=prolocotorre-ufficiale-2026&action=hit', {
+            const response = await fetch(`https://api.counterapi.dev/v1/${namespace}/${key}/up`, {
                 signal: controller.signal
             });
             clearTimeout(timeoutId);
 
-            if (res.ok) {
-                const data = await res.json();
-                const remoteCount = Number(data.count || data.value || data);
-                if (!isNaN(remoteCount) && remoteCount > 0) {
-                    visits = Math.max(visits, remoteCount + BASE_VISITS);
-                    localStorage.setItem('plr_site_visits', visits);
+            if (response.ok) {
+                const data = await response.json();
+                if (data && typeof data.count !== 'undefined') {
+                    counterEl.textContent = Number(data.count).toLocaleString('it-IT');
                 }
+            } else {
+                counterEl.textContent = '1';
             }
         } catch (err) {
-            // Se l'API esterna è bloccata da adblock/CORS, continua regolarmente con il dato locale
+            if (!counterEl.textContent || counterEl.textContent === '-') {
+                counterEl.textContent = '1';
+            }
         }
-
-        // Mostra il conteggio formattato (es. 43, 44, 45...)
-        counterEl.textContent = visits.toLocaleString('it-IT');
     }
 
     updateVisitCounter();
