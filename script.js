@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const eventsList = [
         {
             id: 'cinetorre-mammamia',
-            title: 'CineTorre: Mamma mia!',
+            title: 'CineTorre',
             subtitle: 'Cinema & Comunità',
             dateStr: '2026-10-09',
             dateDisplay: 'Venerdì 9 Ottobre 2026',
@@ -440,6 +440,21 @@ document.addEventListener('DOMContentLoaded', () => {
     // GESTIONE GALLERIA ALBUM FOTOGRAFICA & LIGHTBOX
     // ===================================================
     const galleryAlbums = [
+
+        {
+            id: 'cinetorre-gran-torino',
+            title: 'CineTorre - Gran Torino',
+            date: '23 Ottobre 2026',
+            desc: 'Gli scatti della terza serata di cinema e comunità al Centro Policulturale con la proiezione di Gran Torino, Popcorn, divertimento e grande partecipazione.',
+            cover: 'gran-torino.jpg',
+            photos: [
+                'gran-torino.jpg',
+                'granTorino-1.jpg',
+                'granTorino-2.jpg',
+                'granTorino-3.jpg',
+                'granTorino-4.jpg'    
+            ]
+        },
         {
             id: 'cinetorre-qualunquemente',
             title: 'CineTorre - Qualunquemente',
@@ -458,8 +473,8 @@ document.addEventListener('DOMContentLoaded', () => {
             ]
         },
         {
-            id: 'cinetorre-prima-serata',
-            title: 'CineTorre - Mamma mia!',
+            id: 'cinetorre-mammamia',
+            title: 'CineTorre - Mamma Mia!',
             date: '9 Ottobre 2026',
             desc: 'Gli scatti della prima serata di cinema e comunità al Centro Policulturale con la proiezione di Mamma Mia! Popcorn, divertimento e grande partecipazione.',
             cover: 'cinetorre.jpg',
