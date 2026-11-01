@@ -709,7 +709,7 @@ document.addEventListener('DOMContentLoaded', () => {
     rainTargets.forEach(el => rainObserver.observe(el));
 
     // ===================================================
-    // GESTIONE VOCI ATTIVE (GIALLO/ORO) E SEZIONI MOBILE
+    // GESTIONE VOCI ATTIVE E SEZIONI MOBILE
     // ===================================================
     const sections = document.querySelectorAll('section[id]');
     const navLinks = document.querySelectorAll('.nav-links .nav-item, .mobile-links .mobile-nav-item');
@@ -881,19 +881,15 @@ document.addEventListener('DOMContentLoaded', () => {
             content: `
                 <h4><i class="fa-solid fa-cross"></i> Le Origini e la Presenza Basiliana</h4>
                 <p>Il <strong>Santuario della Madonna delle Grazie</strong> di Torre di Ruggiero affonda le sue radici in un luogo da sempre intriso di spiritualità, originariamente legato alla presenza operosa dei monaci basiliani sin dal IX secolo.</p>
-                
                 <h4><i class="fa-solid fa-star-of-life"></i> L'Apparizione ad Isabella Inzillo (1677)</h4>
                 <p>La storia più celebre del santuario ha inizio nell'<strong>aprile del 1677</strong>, quando la valle era ormai coperta da fitti rovi e le antiche vestigia del culto erano andate quasi del tutto perdute. La tradizione narra che la Vergine apparve a una giovane contadina del posto, <em>Isabella Inzillo</em>, gravemente malata.</p>
                 <div class="quote-block">
                     "La Madonna la guarì miracolosamente e le affidò un messaggio chiaro per la comunità: ripulire quel luogo sacro dalle spine e ricostruire una chiesa in suo onore, affinché diventasse fonte di conforto e grazie per tutti i devoti."
                 </div>
-
                 <h4><i class="fa-solid fa-person-walking"></i> Il Miracolo di Pascale Angiolini e i Pellegrinaggi</h4>
-                <p>Poco tempo dopo, le apparizioni si rinnovarono a un altro popolano, <em>Pascale Angiolini</em>, e la voce dell'evento prodigioso si diffuse con tale rapidità da richiamare migliaia di pellegrini da ogni angolo della Calabria e dell'intero Mezzogiorno. Il parroco e le autorità locali diedero avvio ai lavori, trasformando quel vallone isolato nel cuore pulsante di una devozione radicata e profonda.</p>
-
+                <p>Poco tempo dopo, le apparizioni si rinnovarono a un altro popolano, <em>Pascale Angiolini</em>, e la voce dell'evento prodigioso si diffuse con tale rapidità da richiamare migliaia di pellegrini da ogni angolo della Calabria e dell'intero Mezzogiorno.</p>
                 <h4><i class="fa-solid fa-church"></i> La Rinascita dopo il Sisma e la Basilica Minore</h4>
-                <p>Nonostante il disastroso terremoto del 1783, che rase al suolo la prima costruzione, la fede dei fedeli non venne meno: il tempio fu ricostruito con instancabile dedizione e, nel corso del Novecento, elevato al rango di <strong>Basilica Minore</strong>.</p>
-                <p>Ancora oggi, soprattutto nei primi giorni di settembre durante la festa patronale, il santuario continua a essere meta viva di cammini penitenziali, preghiera e raccoglimento spirituale.</p>
+                <p>Nonostante il disastroso terremoto del 1783, il tempio fu ricostruito con instancabile dedizione e, nel corso del Novecento, elevato al rango di <strong>Basilica Minore</strong>.</p>
             `
         },
         'conte-ruggiero': {
@@ -901,46 +897,21 @@ document.addEventListener('DOMContentLoaded', () => {
             title: "Il Conte Ruggero e l'Origine del Borgo",
             content: `
                 <h4><i class="fa-solid fa-landmark"></i> Il Cambio di Nome in Onore del Normanno</h4>
-                <p>Fino all'Ottocento il paese non si chiamava affatto così. Il nome originario era <strong>Torre di Spadola</strong>, poiché i primi nuclei di coloni che popolarono l'area provenivano in gran parte dal vicino centro di Spadola.</p>
-                <p>Fu soltanto con un <strong>decreto regio dell'8 maggio 1864</strong> che il comune assunse ufficialmente la denominazione di <em>Torre di Ruggiero</em>, volendo rendere omaggio a <strong>Ruggero I d'Altavilla</strong>, Gran Conte di Calabria e di Sicilia.</p>
-
+                <p>Fino all'Ottocento il paese non si chiamava affatto così. Il nome originario era <strong>Torre di Spadola</strong>.</p>
+                <p>Fu soltanto con un <strong>decreto regio dell'8 maggio 1864</strong> che il comune assunse ufficialmente la denominazione di <em>Torre di Ruggiero</em>, in omaggio a <strong>Ruggero I d'Altavilla</strong>.</p>
                 <h4><i class="fa-solid fa-chess-rook"></i> La Fondazione Leggendaria</h4>
-                <p>La tradizione locale attribuisce la nascita stessa dell'insediamento al Gran Conte. Durante le sue campagne militari per liberare e riorganizzare i territori calabresi nell'XI secolo, Ruggero avrebbe fatto erigere una <strong>torre di vedetta strategica</strong> per controllare la media valle dell'Ancinale, unificando i piccoli casali sparsi e dando vita all'agglomerato primigenio.</p>
-
-                <h4><i class="fa-solid fa-mountain-sun"></i> Il Legame con le Serre e San Bruno</h4>
-                <p>Il Gran Conte Ruggero scelse proprio le Serre calabre come uno dei suoi fulcri strategici e spirituali: fu lui a donare a San Bruno di Colonia le terre per la celebre <em>Certosa di Serra San Bruno</em> e a favorire il ripopolamento e la cristianizzazione latina di tutta la vallata.</p>
-
-                <hr style="border: none; border-top: 1px solid #e2e8f0; margin: 24px 0;">
-
-                <h4><i class="fa-solid fa-gem"></i> Curiosità sul Borgo</h4>
-                <p><strong>• La «Piccola Lourdes» calabrese:</strong> Per via del santuario, delle acque della valle e della forza dei pellegrinaggi mariani nati dalle apparizioni seicentesche, il paese è spesso soprannominato la Piccola Lourdes della Calabria.</p>
-                <p><strong>• I maestri scalpellini e i portali in granito:</strong> Camminando per i vicoli storici del borgo (<em>'A Turri</em> in dialetto), si notano subito gli imponenti portali in granito locale dei palazzi gentilizi (come <em>Palazzo Donna Anna</em> e <em>Palazzo Ravaschieri</em>), scolpiti a mano dalle rinomate maestranze di scalpellini serresi tra il Settecento e l'Ottocento.</p>
-                <p><strong>• Capitale della nocciola:</strong> Torre di Ruggiero è uno dei centri d'eccellenza della corilicoltura in Calabria e fa parte dell'Associazione Nazionale Città della Nocciola con la pregiata varietà autoctona <em>Tonda Calabrese</em>.</p>
-                <p><strong>• L'antichissima Chiesa di Santa Domenica:</strong> Nel cuore del borgo sorge la Chiesa di Santa Domenica, le cui prime tracce risalgono all'epoca bizantino-normanna (X-XII secolo), testimone silenziosa di una comunità risorta dalle macerie del sisma del 1783.</p>
+                <p>Durante le sue campagne militari nell'XI secolo, Ruggero avrebbe fatto erigere una <strong>torre di vedetta strategica</strong> per controllare la media valle dell'Ancinale.</p>
             `
         },
         'tradizioni': {
             badge: 'Sapori Tipici, Terra & Comunità',
             title: 'Tradizioni e Sapori di Torre di Ruggiero',
             content: `
-                <p>La tavola di Torre di Ruggiero riflette appieno l'anima delle Serre calabresi: cucina contadina, ingredienti di terra, legumi, bosco e sapori decisi tramandati con orgoglio da generazioni.</p>
-
+                <p>La tavola di Torre di Ruggiero riflette appieno l'anima delle Serre calabresi: cucina contadina, ingredienti di terra e sapori decisi.</p>
                 <h4><i class="fa-solid fa-bowl-food"></i> La Regina d'Agosto: La Pasta e Fagioli</h4>
-                <p>La pasta e fagioli qui non è solo una ricetta quotidiana, ma un vero rito comunitario celebrato ogni estate nel cuore del paese con una <strong>sagra storica</strong> che richiama persone da tutto il comprensorio:</p>
-                <p><strong>• La cottura lenta:</strong> Come vuole l'antica usanza contadina, i fagioli venivano tradizionalmente cotti a fuoco dolcissimo nella <em>pignata di terracotta</em> vicino al camino o alla brace, arricchiti con aglio, alloro o un rametto di origano selvatico.</p>
-                <p><strong>• Il condimento rustico:</strong> La minestra viene completata con un soffritto saporito di olio extravergine d'oliva locale, pomodoro appena accennato e l'immancabile peperoncino calabrese piccante. Spesso si aggiunge la cotenna di maiale (<em>'a scorza</em>) o pezzetti di guanciale per dare corpo e sapore.</p>
-                <p><strong>• Il formato di pasta:</strong> A differenza delle versioni settentrionali più brodose, qui la consistenza è densa e cremosa (<em>azzeccata</em>), unita a pasta corta rigata o maltagliati fatti in casa.</p>
-
-                <h4><i class="fa-solid fa-tree"></i> La Nocciola Tonda Calabrese: L’«Oro Tondo»</h4>
-                <p>Le nocciole (<em>'e nzippi</em> o <em>nuciddi</em>) sono il simbolo identitario del territorio, tanto che il borgo ha legato a questo frutto la sua vocazione agricola d'eccellenza:</p>
-                <p><strong>• In pasticceria:</strong> La Tonda Calabrese ha un aroma tostato intenso e una spiccata dolcezza naturale. Viene impiegata per dolci secchi tradizionali, croccanti al miele millefiori locale, cantucci rustici e torte da forno fatte in casa.</p>
-                <p><strong>• Nei piatti salati:</strong> La granella tostata è usata come finitura croccante su primi ai funghi o secondi di carne e formaggi tipici.</p>
-                <p><strong>• La raccolta autunnale:</strong> Settembre e ottobre sono i mesi in cui i noccioleti si animano, momento che un tempo riuniva intere famiglie nella raccolta manuale e nell'asciugatura al sole delle aie.</p>
-
-                <h4><i class="fa-solid fa-plate-wheat"></i> Altri Capisaldi della Tradizione Locale</h4>
-                <p><strong>• I sapori del bosco:</strong> Essendo ai piedi delle Serre, Torre vanta una ricca cultura di funghi porcini freschi, trifolati, fritti o conservati sott'olio, oltre alle immancabili castagne arrostite (<em>rusuliddre</em>) o bollite con finocchietto (<em>allesse</em>).</p>
-                <p><strong>• Pasta fatta in casa:</strong> La pasta della domenica sono i <em>fileja</em> (maccheroni al ferretto), lavorati a mano attorno al filo di giunco (<em>'u fusu</em>) con ragù di maiale o capra a lenta cottura.</p>
-                <p><strong>• I dolci delle feste:</strong> A Natale e Pasqua non mancano le zeppole (<em>cuddruriddri</em>), i <em>pittapie</em> (biscotti ripieni di marmellata d'uva, noci e spezie) e le paste secche all'anice.</p>
+                <p>Un rito comunitario celebrato ogni estate nel cuore del paese con una <strong>sagra storica</strong>.</p>
+                <h4><i class="fa-solid fa-tree"></i> La Nocciola Tonda Calabrese</h4>
+                <p>Il simbolo identitario del territorio, eccellenza della corilicoltura calabrese con la varietà autoctona <em>Tonda Calabrese</em>.</p>
             `
         }
     };
@@ -961,7 +932,6 @@ document.addEventListener('DOMContentLoaded', () => {
             <h2>${data.title}</h2>
         `;
         historyModalBody.innerHTML = data.content;
-
         historyModal.classList.add('active');
         document.body.style.overflow = 'hidden';
     }
@@ -982,12 +952,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (historyModalClose) historyModalClose.addEventListener('click', closeHistoryModal);
     if (historyModalOkBtn) historyModalOkBtn.addEventListener('click', closeHistoryModal);
-
-    if (historyModal) {
-        historyModal.addEventListener('click', (e) => {
-            if (e.target === historyModal) closeHistoryModal();
-        });
-    }
 
     // Invio Form Nativo
     const contactForm = document.getElementById('contact-form');
@@ -1066,25 +1030,21 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-// ===================================================
-    // CONTATORE VISITE GLOBALE E SINCRONIZZATO (CLOUD)
+    // ===================================================
+    // CONTATORE VISITE GLOBALE (GOOGLE CLOUD PERSISTENTE)
     // ===================================================
     async function updateVisitCounter() {
         const counterEl = document.getElementById('visits-count');
         if (!counterEl) return;
 
-        // Scegli un namespace e una chiave unici per il tuo sito
-        const namespace = 'prolocotorrediruggiero';
-        const key = 'visite-sito-ufficiale';
+        // Inserito il tuo URL dell'app web di Google Apps Script
+        const googleScriptUrl = 'https://script.google.com/macros/s/AKfycbtyGpJRrAKqZiZDoVP5pjdQl0w4ZbH7Bzre6uM3s8yOTHsxkew6Ap9eA4QtDeP3Va/exec';
 
         try {
-            // Effettua la chiamata al servizio cloud di Countapi per incrementare e leggere il totale
-            const response = await fetch(`https://api.countapi.xyz/hit/${namespace}/${key}`);
-            
+            const response = await fetch(googleScriptUrl);
             if (response.ok) {
                 const data = await response.json();
                 if (data && typeof data.value !== 'undefined') {
-                    // Mostra il numero globale formattato
                     counterEl.textContent = Number(data.value).toLocaleString('it-IT');
                 } else {
                     counterEl.textContent = '1';
@@ -1093,7 +1053,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 counterEl.textContent = '1';
             }
         } catch (err) {
-            // Fallback nel caso in cui la rete sia lenta o offline
             counterEl.textContent = '1';
         }
     }
