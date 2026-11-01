@@ -68,6 +68,19 @@ document.addEventListener('DOMContentLoaded', () => {
             description: 'Profondità abissali, tecnologia 3D e il mito del Titanic come non l\'avete mai visto. James Cameron ci riporta a 4.000 metri sotto il mare: un viaggio spettacolare tra storia e mistero.',
             posterImage: 'ghosts.jpg',
             posterFallback: 'ghosts.jpg'
+        },
+        {
+            id: 'cinetorre-quasi amici',
+            title: 'CineTorre: Quasi Amici',
+            subtitle: 'Cinema & Comunità',
+            dateStr: '2026-11-06',
+            dateDisplay: 'Venerdì 6 Novembre 2026',
+            time: 'Ore 21:00 (Ingresso Libero)',
+            location: 'Centro Policulturale – Loc. Paolello',
+            audience: 'Aperto a tutti: giovani, famiglie e appassionati di cinema',
+            description: 'Un miliardario paralizzato, un badante imprevedibile e un amicizia fuori dagli schemi che cambia tutto. Tra risate irrefrenabili e pura emozione, Quasi Amici racconta la travolgente storia vera che ha conquistato il mondo. Venite a viverla con noi sul grande schermo: il sorriso è garantito!',
+            posterImage: 'quasi-amici.jpg',
+            posterFallback: 'quasi-amici.jpg'
         }
     
     ];
@@ -441,6 +454,43 @@ document.addEventListener('DOMContentLoaded', () => {
     // ===================================================
     const galleryAlbums = [
 
+        {
+            id: 'Torreween',
+            title: 'Torreween Party 2026',
+            date: '31 Ottobre 2026',
+            desc: 'Gli scatti della prima festa di halloween a Torre di Ruggiero, piena di divertimento e grande partecipazione.',
+            cover: 'torreween.jpg',
+            photos: [
+                'torreween.jpg',
+                'Torreween-1.jpg',
+                'Torreween-2.jpg',
+                'Torreween-3.jpg',
+                'Torreween-4.jpg',
+                'Torreween-5.jpg',
+                'Torreween-6.jpg',
+                'Torreween-7.jpg', 
+                'Torreween-8.jpg',
+                'Torreween-9.jpg',
+                'Torreween-10.jpg',
+                'Torreween-11.jpg'  
+                'Torreween-12.jpg',
+                'Torreween-13.jpg',
+                'Torreween-14.jpg'    
+            ]               
+        },
+        {
+            id: 'cinetorre-ghosts of the abyss',
+            title: 'CineTorre - Ghosts of the abyss',
+            date: '30 Ottobre 2026',
+            desc: 'Gli scatti della quarta serata di cinema e comunità al Centro Policulturale con la proiezione di Ghosts of the abyss, Popcorn, divertimento e grande partecipazione.',
+            cover: 'ghosts.jpg',
+            photos: [
+                'ghosts.jpg',
+                'ghosts-1.jpg',
+                'ghosts-2.jpg',
+                'ghosts-3.jpg'    
+            ]
+        },
         {
             id: 'cinetorre-gran-torino',
             title: 'CineTorre - Gran Torino',
