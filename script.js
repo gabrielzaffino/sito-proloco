@@ -66,8 +66,8 @@ document.addEventListener('DOMContentLoaded', () => {
             location: 'Centro Policulturale – Loc. Paolello',
             audience: 'Aperto a tutti: giovani, famiglie e appassionati di cinema',
             description: 'Profondità abissali, tecnologia 3D e il mito del Titanic come non l\'avete mai visto. James Cameron ci riporta a 4.000 metri sotto il mare: un viaggio spettacolare tra storia e mistero.',
-            posterImage: 'ghosts.jpg',
-            posterFallback: 'ghosts.jpg'
+            posterImage: 'ghosts.JPG',
+            posterFallback: 'ghosts.JPG'
         },
         {
             id: 'cinetorre-quasi amici',
@@ -79,8 +79,8 @@ document.addEventListener('DOMContentLoaded', () => {
             location: 'Centro Policulturale – Loc. Paolello',
             audience: 'Aperto a tutti: giovani, famiglie e appassionati di cinema',
             description: 'Un miliardario paralizzato, un badante imprevedibile e un amicizia fuori dagli schemi che cambia tutto. Tra risate irrefrenabili e pura emozione, Quasi Amici racconta la travolgente storia vera che ha conquistato il mondo. Venite a viverla con noi sul grande schermo: il sorriso è garantito!',
-            posterImage: 'quasi-amici.jpg',
-            posterFallback: 'quasi-amici.jpg'
+            posterImage: 'quasi-amici.JPG',
+            posterFallback: 'quasi-amici.JPG'
         } 
     ];
 
