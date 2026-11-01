@@ -1067,29 +1067,37 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
   // ===================================================
-    // CONTATORE VISITE LOCALE (STABILE E VELOCE)
+    // CONTATORE VISITE GLOBALE E SINCRONIZZATO
     // ===================================================
-    function updateVisitCounter() {
+    async function updateVisitCounter() {
         const counterEl = document.getElementById('visits-count');
         if (!counterEl) return;
 
+        // Scegli un nome univoco per il tuo namespace e la chiave
+        const namespace = 'prolocotorrediruggiero-ufficiale';
+        const key = 'totale_visite_sito';
+
         try {
-            // Recupera il numero attuale dal browser, se non esiste parte da 50 (o dal numero che preferisci)
-            let visits = localStorage.getItem('proloco_totale_visite');
-            
-            if (!visits) {
-                visits = 50; // Valore di partenza iniziale (puoi metterci quello che avevi prima)
+            const controller = new AbortController();
+            const timeoutId = setTimeout(() => controller.abort(), 3000);
+
+            // Questa chiamata incrementa e restituisce il valore globale reale dal server
+            const response = await fetch(`https://api.counterapi.dev/v1/${namespace}/${key}/up`, {
+                signal: controller.signal
+            });
+            clearTimeout(timeoutId);
+
+            if (response.ok) {
+                const data = await response.json();
+                if (data && typeof data.count !== 'undefined') {
+                    counterEl.textContent = Number(data.count).toLocaleString('it-IT');
+                }
             } else {
-                visits = parseInt(visits, 10) + 1;
+                counterEl.textContent = '-';
             }
-
-            // Salva il nuovo valore nel browser
-            localStorage.setItem('proloco_totale_visite', visits);
-
-            // Mostra il numero formattato nel footer
-            counterEl.textContent = Number(visits).toLocaleString('it-IT');
         } catch (err) {
-            counterEl.textContent = '1';
+            // Fallback nel caso in cui la rete sia lenta o offline
+            counterEl.textContent = '-';
         }
     }
 
