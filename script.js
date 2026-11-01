@@ -81,8 +81,7 @@ document.addEventListener('DOMContentLoaded', () => {
             description: 'Un miliardario paralizzato, un badante imprevedibile e un amicizia fuori dagli schemi che cambia tutto. Tra risate irrefrenabili e pura emozione, Quasi Amici racconta la travolgente storia vera che ha conquistato il mondo. Venite a viverla con noi sul grande schermo: il sorriso è garantito!',
             posterImage: 'quasi-amici.jpg',
             posterFallback: 'quasi-amici.jpg'
-        }
-    
+        } 
     ];
 
     // Dati locandina programma generale stagionale
@@ -160,7 +159,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     </div>
                 </div>
             `;
-
             const btnViewProgramEmpty = document.getElementById('btn-view-program-empty');
             if (btnViewProgramEmpty) {
                 btnViewProgramEmpty.addEventListener('click', openProgramModal);
@@ -195,7 +193,6 @@ document.addEventListener('DOMContentLoaded', () => {
         const currentEvent = upcomingEvents[currentEventIndex];
         const total = upcomingEvents.length;
 
-        // Costruiamo barra di navigazione con frecce e pallini se ci sono più eventi
         let sliderControlsHtml = '';
         if (total > 1) {
             const dotsHtml = upcomingEvents.map((ev, idx) => `
@@ -226,7 +223,6 @@ document.addEventListener('DOMContentLoaded', () => {
             `;
         }
 
-        // Paginazione a pallini in basso
         let dotsContainerHtml = '';
         if (total > 1) {
             const dots = upcomingEvents.map((ev, idx) => `
@@ -287,13 +283,11 @@ document.addEventListener('DOMContentLoaded', () => {
             ${dotsContainerHtml}
         `;
 
-        // Aggancio apertura programma generale
         const btnViewProgram = document.getElementById('btn-view-program');
         if (btnViewProgram) {
             btnViewProgram.addEventListener('click', openProgramModal);
         }
 
-        // Aggancio frecce avanti e indietro
         const prevBtn = document.getElementById('prev-event-btn');
         const nextBtn = document.getElementById('next-event-btn');
 
@@ -311,7 +305,6 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
 
-        // Aggancio click sui pallini
         const dotBtns = spotlightContainer.querySelectorAll('.slider-dot-btn');
         dotBtns.forEach(dot => {
             dot.addEventListener('click', () => {
@@ -323,7 +316,6 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
 
-        // Gestione swipe touch mobile sulla card
         const cardStage = document.getElementById('spotlight-card-content');
         if (cardStage && total > 1) {
             let startX = 0;
@@ -337,18 +329,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 endX = e.changedTouches[0].screenX;
                 const diff = endX - startX;
                 if (diff < -45) {
-                    // Swipe verso sinistra -> prossimo
                     currentEventIndex = (currentEventIndex + 1) % upcomingEvents.length;
                     updateSpotlightCard();
                 } else if (diff > 45) {
-                    // Swipe verso destra -> precedente
                     currentEventIndex = (currentEventIndex - 1 + upcomingEvents.length) % upcomingEvents.length;
                     updateSpotlightCard();
                 }
             }, { passive: true });
         }
 
-        // Condividi Evento
         const shareBtn = document.getElementById('share-event-btn');
         if (shareBtn) {
             shareBtn.addEventListener('click', (e) => {
@@ -370,7 +359,7 @@ document.addEventListener('DOMContentLoaded', () => {
     renderEvents();
 
     // ===================================================
-    // MODAL PROGRAMMA GENERALE CINETORRE (SENZA TREMOLIO & DOWNLOAD SICURO)
+    // MODAL PROGRAMMA GENERALE CINETORRE
     // ===================================================
     let programModal = document.getElementById('modal-programma-cinetorre');
     if (!programModal) {
@@ -424,7 +413,6 @@ document.addEventListener('DOMContentLoaded', () => {
         if (e.target === programModal) closeProgramModal();
     });
 
-    // Gestione download
     const btnDownloadPoster = document.getElementById('btn-download-poster');
     if (btnDownloadPoster) {
         btnDownloadPoster.addEventListener('click', async (e) => {
@@ -453,7 +441,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // GESTIONE GALLERIA ALBUM FOTOGRAFICA & LIGHTBOX
     // ===================================================
     const galleryAlbums = [
-
         {
             id: 'Torreween',
             title: 'Torreween Party 2026',
@@ -462,20 +449,20 @@ document.addEventListener('DOMContentLoaded', () => {
             cover: 'torreween.jpg',
             photos: [
                 'torreween.jpg',
-                'Torreween-1.jpg',
-                'Torreween-2.jpg',
-                'Torreween-3.jpg',
-                'Torreween-4.jpg',
-                'Torreween-5.jpg',
-                'Torreween-6.jpg',
-                'Torreween-7.jpg', 
-                'Torreween-8.jpg',
-                'Torreween-9.jpg',
-                'Torreween-10.jpg',
-                'Torreween-11.jpg'  
-                'Torreween-12.jpg',
-                'Torreween-13.jpg',
-                'Torreween-14.jpg'    
+                'Torreween-1.JPG',
+                'Torreween-2.JPG',
+                'Torreween-3.JPG',
+                'Torreween-4.JPG',
+                'Torreween-5.JPG',
+                'Torreween-6.JPG',
+                'Torreween-7.JPG', 
+                'Torreween-8.JPG',
+                'Torreween-9.JPG',
+                'Torreween-10.JPG',
+                'Torreween-11.JPG',
+                'Torreween-12.JPG',
+                'Torreween-13.JPG',
+                'Torreween-14.JPG'
             ]               
         },
         {
@@ -483,12 +470,12 @@ document.addEventListener('DOMContentLoaded', () => {
             title: 'CineTorre - Ghosts of the abyss',
             date: '30 Ottobre 2026',
             desc: 'Gli scatti della quarta serata di cinema e comunità al Centro Policulturale con la proiezione di Ghosts of the abyss, Popcorn, divertimento e grande partecipazione.',
-            cover: 'ghosts.jpg',
+            cover: 'ghosts.JPG',
             photos: [
-                'ghosts.jpg',
-                'ghosts-1.jpg',
-                'ghosts-2.jpg',
-                'ghosts-3.jpg'    
+                'ghosts.JPG',
+                'ghosts-1.JPG',
+                'ghosts-2.JPG',
+                'ghosts-3.JPG'    
             ]
         },
         {
@@ -668,7 +655,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Touch Swipe mobile lightbox
     let touchStartX = 0;
     let touchEndX = 0;
 
@@ -774,7 +760,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         sections.forEach(sec => sec.classList.remove('mobile-active-section'));
-
         window.scrollTo({ top: 0, behavior: 'instant' });
 
         requestAnimationFrame(() => {
