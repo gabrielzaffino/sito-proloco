@@ -1038,7 +1038,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!counterEl) return;
 
         // Inserito il tuo URL dell'app web di Google Apps Script
-        const googleScriptUrl = 'https://script.google.com/macros/s/AKfycbtyGpJRrAKqZiZDoVP5pjdQl0w4ZbH7Bzre6uM3s8yOTHsxkew6Ap9eA4QtDeP3Va/exec';
+        const googleScriptUrl = 'https://script.google.com/macros/s/AKfycbxyB5QLYAE6ye6TLtO3CmjDY8SzT7qTfx6uvEv_RdPlPuD3tVMrMW7PtfC55aOL0_w6ng/exec';
 
         try {
             const response = await fetch(googleScriptUrl);
