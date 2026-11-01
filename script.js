@@ -1066,37 +1066,30 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+  // ===================================================
+    // CONTATORE VISITE LOCALE (STABILE E VELOCE)
     // ===================================================
-    // CONTATORE VISITE PUBBLICO E REALE (INCREMENTO AD OGNI VISITA)
-    // ===================================================
-    async function updateVisitCounter() {
+    function updateVisitCounter() {
         const counterEl = document.getElementById('visits-count');
         if (!counterEl) return;
 
-        const namespace = 'prolocotorrediruggiero-2026';
-        const key = 'totale_visite';
-
         try {
-            const controller = new AbortController();
-            const timeoutId = setTimeout(() => controller.abort(), 2000);
-
-            const response = await fetch(`https://api.counterapi.dev/v1/${namespace}/${key}/up`, {
-                signal: controller.signal
-            });
-            clearTimeout(timeoutId);
-
-            if (response.ok) {
-                const data = await response.json();
-                if (data && typeof data.count !== 'undefined') {
-                    counterEl.textContent = Number(data.count).toLocaleString('it-IT');
-                }
+            // Recupera il numero attuale dal browser, se non esiste parte da 50 (o dal numero che preferisci)
+            let visits = localStorage.getItem('proloco_totale_visite');
+            
+            if (!visits) {
+                visits = 50; // Valore di partenza iniziale (puoi metterci quello che avevi prima)
             } else {
-                counterEl.textContent = '1';
+                visits = parseInt(visits, 10) + 1;
             }
+
+            // Salva il nuovo valore nel browser
+            localStorage.setItem('proloco_totale_visite', visits);
+
+            // Mostra il numero formattato nel footer
+            counterEl.textContent = Number(visits).toLocaleString('it-IT');
         } catch (err) {
-            if (!counterEl.textContent || counterEl.textContent === '-') {
-                counterEl.textContent = '1';
-            }
+            counterEl.textContent = '1';
         }
     }
 
