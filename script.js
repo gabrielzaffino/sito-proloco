@@ -66,8 +66,8 @@ document.addEventListener('DOMContentLoaded', () => {
             location: 'Centro Policulturale – Loc. Paolello',
             audience: 'Aperto a tutti: giovani, famiglie e appassionati di cinema',
             description: 'Profondità abissali, tecnologia 3D e il mito del Titanic come non l\'avete mai visto. James Cameron ci riporta a 4.000 metri sotto il mare: un viaggio spettacolare tra storia e mistero.',
-            posterImage: 'ghosts.JPG',
-            posterFallback: 'ghosts.JPG'
+            posterImage: 'ghosts.jpg',
+            posterFallback: 'ghosts.jpg'
         },
         {
             id: 'cinetorre-quasi amici',
@@ -470,9 +470,9 @@ document.addEventListener('DOMContentLoaded', () => {
             title: 'CineTorre - Ghosts of the abyss',
             date: '30 Ottobre 2026',
             desc: 'Gli scatti della quarta serata di cinema e comunità al Centro Policulturale con la proiezione di Ghosts of the abyss, Popcorn, divertimento e grande partecipazione.',
-            cover: 'ghosts.JPG',
+            cover: 'ghosts.jpg',
             photos: [
-                'ghosts.JPG',
+                'ghosts.jpg',
                 'ghosts-1.JPG',
                 'ghosts-2.JPG',
                 'ghosts-3.JPG'    
