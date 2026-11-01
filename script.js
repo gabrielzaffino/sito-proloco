@@ -1073,7 +1073,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const counterEl = document.getElementById('visits-count');
         if (!counterEl) return;
 
-        const namespace = 'prolocotorrediruggiero-ufficiale';
+        const namespace = 'prolocotorrediruggiero-2026';
         const key = 'totale_visite';
 
         try {
