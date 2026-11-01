@@ -1067,30 +1067,34 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 // ===================================================
-    // CONTATORE VISITE AFFIDABILE E LOCALE
+    // CONTATORE VISITE GLOBALE E SINCRONIZZATO (CLOUD)
     // ===================================================
-    function updateVisitCounter() {
+    async function updateVisitCounter() {
         const counterEl = document.getElementById('visits-count');
         if (!counterEl) return;
 
+        // Scegli un namespace e una chiave unici per il tuo sito
+        const namespace = 'prolocotorrediruggiero';
+        const key = 'visite-sito-ufficiale';
+
         try {
-            // Legge le visite salvate dal browser, oppure parte da un valore iniziale realistico (es. 50)
-            let visits = localStorage.getItem('proloco_totale_visite');
+            // Effettua la chiamata al servizio cloud di Countapi per incrementare e leggere il totale
+            const response = await fetch(`https://api.countapi.xyz/hit/${namespace}/${key}`);
             
-            if (!visits || isNaN(visits)) {
-                visits = 50; 
+            if (response.ok) {
+                const data = await response.json();
+                if (data && typeof data.value !== 'undefined') {
+                    // Mostra il numero globale formattato
+                    counterEl.textContent = Number(data.value).toLocaleString('it-IT');
+                } else {
+                    counterEl.textContent = '1';
+                }
             } else {
-                visits = parseInt(visits, 10) + 1;
+                counterEl.textContent = '1';
             }
-
-            // Salva il nuovo valore aggiornato
-            localStorage.setItem('proloco_totale_visite', visits);
-
-            // Scrive il numero nel footer formattato correttamente
-            counterEl.textContent = Number(visits).toLocaleString('it-IT');
         } catch (err) {
-            // Fallback di sicurezza nel caso in cui il browser blocchi il localStorage
-            counterEl.textContent = '50';
+            // Fallback nel caso in cui la rete sia lenta o offline
+            counterEl.textContent = '1';
         }
     }
 
