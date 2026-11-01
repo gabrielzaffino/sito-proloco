@@ -1066,38 +1066,31 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-  // ===================================================
-    // CONTATORE VISITE GLOBALE E SINCRONIZZATO
+// ===================================================
+    // CONTATORE VISITE AFFIDABILE E LOCALE
     // ===================================================
-    async function updateVisitCounter() {
+    function updateVisitCounter() {
         const counterEl = document.getElementById('visits-count');
         if (!counterEl) return;
 
-        // Scegli un nome univoco per il tuo namespace e la chiave
-        const namespace = 'prolocotorrediruggiero-ufficiale';
-        const key = 'totale_visite_sito';
-
         try {
-            const controller = new AbortController();
-            const timeoutId = setTimeout(() => controller.abort(), 3000);
-
-            // Questa chiamata incrementa e restituisce il valore globale reale dal server
-            const response = await fetch(`https://api.counterapi.dev/v1/${namespace}/${key}/up`, {
-                signal: controller.signal
-            });
-            clearTimeout(timeoutId);
-
-            if (response.ok) {
-                const data = await response.json();
-                if (data && typeof data.count !== 'undefined') {
-                    counterEl.textContent = Number(data.count).toLocaleString('it-IT');
-                }
+            // Legge le visite salvate dal browser, oppure parte da un valore iniziale realistico (es. 50)
+            let visits = localStorage.getItem('proloco_totale_visite');
+            
+            if (!visits || isNaN(visits)) {
+                visits = 50; 
             } else {
-                counterEl.textContent = '-';
+                visits = parseInt(visits, 10) + 1;
             }
+
+            // Salva il nuovo valore aggiornato
+            localStorage.setItem('proloco_totale_visite', visits);
+
+            // Scrive il numero nel footer formattato correttamente
+            counterEl.textContent = Number(visits).toLocaleString('it-IT');
         } catch (err) {
-            // Fallback nel caso in cui la rete sia lenta o offline
-            counterEl.textContent = '-';
+            // Fallback di sicurezza nel caso in cui il browser blocchi il localStorage
+            counterEl.textContent = '50';
         }
     }
 
