@@ -81,7 +81,19 @@ document.addEventListener('DOMContentLoaded', () => {
             description: 'Un miliardario paralizzato, un badante imprevedibile e un amicizia fuori dagli schemi che cambia tutto. Tra risate irrefrenabili e pura emozione, Quasi Amici racconta la travolgente storia vera che ha conquistato il mondo. Venite a viverla con noi sul grande schermo: il sorriso è garantito!',
             posterImage: 'quasi-amici.JPG',
             posterFallback: 'quasi-amici.JPG'
-        } 
+        },
+        {
+            id: 'san-martino-2026',
+            title: 'San Martino 2026',
+            subtitle: 'Festa di San Martino & Comunità',
+            dateStr: '2026-11-14',
+            dateDisplay: 'Sabato 14 Novembre 2026',
+            time: 'Ore 19.30 (Ingresso Libero)',
+            location: 'Piazza del Popolo',
+            audience: 'Aperto a tutti: bambini, giovani e famiglie',
+            description: 'Unisciti a noi per una degustazione all insegna della tradizione e del buon cibo! La partecipazione prevede un piccolo contributo a sostegno delle iniziative della Pro Loco, un aiuto concreto per portare avanti i nostri progetti per Torre di Ruggiero.', 
+            posterFallback: 'san-martino.JPG'
+        }
     ];
 
     // Dati locandina programma generale stagionale
