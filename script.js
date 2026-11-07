@@ -441,6 +441,24 @@ document.addEventListener('DOMContentLoaded', () => {
     // GESTIONE GALLERIA ALBUM FOTOGRAFICA & LIGHTBOX
     // ===================================================
     const galleryAlbums = [
+
+          {
+            id: 'cinetorre-quasi amici',
+            title: 'Cinetorre - Quasi amici',
+            date: '06 Novembre 2026',
+            desc: 'Gli scatti della quinta serata di cinema e comunità al Centro Policulturale con la proiezione di Quasi amici, Popcorn, divertimento e grande partecipazione.',
+            cover: 'quasi-amici.JPG',
+            photos: [
+                'quasi-amici.JPG',
+                'quasi-amici-1.JPG',
+                'quasi-amici-2.JPG',
+                'quasi-amici-3.JPG',
+                'quasi-amici-4.JPG',
+                'quasi-amici-5.JPG',
+                'quasi-amici-6.JPG',
+                'quasi-amici-7.JPG'  
+            ]               
+        },
         {
             id: 'Torreween',
             title: 'Torreween Party 2026',
