@@ -93,7 +93,19 @@ document.addEventListener('DOMContentLoaded', () => {
             audience: 'Aperto a tutti: bambini, giovani e famiglie',
             description: 'Unisciti a noi per una degustazione all insegna della tradizione e del buon cibo! La partecipazione prevede un piccolo contributo a sostegno delle iniziative della Pro Loco, un aiuto concreto per portare avanti i nostri progetti per Torre di Ruggiero.', 
             posterFallback: 'san-martino.JPG'
-        }
+        },
+        {
+            id: 'Cinetorre-Inception',
+            title: 'Cinetorre: Inception',
+            subtitle: 'Cinema & Comunità',
+            dateStr: '2026-11-13',
+            dateDisplay: 'Venerdì 13 Novembre 2026',
+            time: 'Ore 21:00 (Ingresso Libero)',
+            location: 'Centro Policulturale – Loc. Paolello',
+            audience: 'Aperto a tutti: giovani, famiglie e appassionati di cinema',
+            description: 'E se qualcuno potesse entrare nei tuoi sogni e manipolare la tua realtà? Cobb ruba i segreti più nascosti direttamente dalla mente umana. Per riprendersi la sua vita dovrà compiere l impossibile: non rubare un idea, ma piantarne una. Tra mondi che si piegano e sfrecciate nel subconscio, Inception vi terrà incollati alla poltrona!', 
+            posterFallback: 'inception.JPG'
+        },
     ];
 
     // Dati locandina programma generale stagionale
