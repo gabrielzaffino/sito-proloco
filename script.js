@@ -466,7 +466,43 @@ document.addEventListener('DOMContentLoaded', () => {
     // ===================================================
     const galleryAlbums = [
 
-          {
+        {
+            id: 'San-Martino',
+            title: 'San Martino 2026',
+            date: '14 Novembre 2026',
+            desc: 'Gli scatti della prima festa di San Martino a Torre di Ruggiero, piena di divertimento, buon cibo e grande partecipazione.',
+            cover: 'san-martino.jpg',
+            photos: [
+                'san-martino.jpg',
+                'san-martino-1.JPG',
+                'san-martino-2.JPG',
+                'san-martino-3.JPG',
+                'san-martino-4.JPG',
+                'san-martino-5.JPG',
+                'san-martino-6.JPG',
+                'san-martino-7.JPG', 
+                'san-martino-8.JPG',
+                'san-martino-9.JPG',
+                'san-martino-10.JPG',
+                'san-martino-11.JPG'
+            ]               
+        },
+        {
+            id: 'cinetorre-inception',
+            title: 'Cinetorre - Inception',
+            date: '13 Novembre 2026',
+            desc: 'Gli scatti della sesta serata di cinema e comunità al Centro Policulturale con la proiezione di Quasi amici, Popcorn, divertimento e grande partecipazione.',
+            cover: 'inception.JPG',
+            photos: [
+                'inception.JPG',
+                'inception-1.JPG',
+                'inception-2.JPG',
+                'inception-4.JPG',
+                'inception-5.JPG',
+                'inception-6.JPG' 
+            ]               
+        },
+        {
             id: 'cinetorre-quasi amici',
             title: 'Cinetorre - Quasi amici',
             date: '06 Novembre 2026',
