@@ -471,9 +471,9 @@ document.addEventListener('DOMContentLoaded', () => {
             title: 'San Martino 2026',
             date: '14 Novembre 2026',
             desc: 'Gli scatti della prima festa di San Martino a Torre di Ruggiero, piena di divertimento, buon cibo e grande partecipazione.',
-            cover: 'san-martino.jpg',
+            cover: 'san-martino.JPG',
             photos: [
-                'san-martino.jpg',
+                'san-martino.JPG',
                 'san-martino-1.JPG',
                 'san-martino-2.JPG',
                 'san-martino-3.JPG',
