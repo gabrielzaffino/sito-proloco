@@ -106,6 +106,18 @@ document.addEventListener('DOMContentLoaded', () => {
             description: 'E se qualcuno potesse entrare nei tuoi sogni e manipolare la tua realtà? Cobb ruba i segreti più nascosti direttamente dalla mente umana. Per riprendersi la sua vita dovrà compiere l impossibile: non rubare un idea, ma piantarne una. Tra mondi che si piegano e sfrecciate nel subconscio, Inception vi terrà incollati alla poltrona!', 
             posterFallback: 'inception.JPG'
         },
+        {
+            id: 'Cinetorre-violinista',
+            title: 'Cinetorre: Il Violinista del Diavolo',
+            subtitle: 'Cinema & Comunità',
+            dateStr: '2026-11-20',
+            dateDisplay: 'Venerdì 20 Novembre 2026',
+            time: 'Ore 21:00 (Ingresso Libero)',
+            location: 'Centro Policulturale – Loc. Paolello',
+            audience: 'Aperto a tutti: giovani, famiglie e appassionati di cinema',
+            description: 'Un uomo capace di incantare il mondo con un solo tocco delle corde, ma prigioniero del suo stesso genio. Il Violinista del Diavolo racconta la vita straordinaria e appassionante di Niccolò Paganini: l artista ribelle che ha trasformato la musica per sempre, tra teatri in delirio, ombre misteriose e un amore puro che proverà a salvargli l anima. Un film intenso, elegante e travolgente!', 
+            posterFallback: 'violinista.JPG'
+        }
     ];
 
     // Dati locandina programma generale stagionale
