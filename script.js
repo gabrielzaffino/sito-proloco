@@ -95,8 +95,8 @@ document.addEventListener('DOMContentLoaded', () => {
             posterFallback: 'san-martino.JPG'
         },
         {
-            id: 'Cinetorre-Inception',
-            title: 'Cinetorre: Inception',
+            id: 'CineTorre-Inception',
+            title: 'CineTorre: Inception',
             subtitle: 'Cinema & Comunità',
             dateStr: '2026-11-13',
             dateDisplay: 'Venerdì 13 Novembre 2026',
@@ -107,8 +107,8 @@ document.addEventListener('DOMContentLoaded', () => {
             posterFallback: 'inception.JPG'
         },
         {
-            id: 'Cinetorre-violinista',
-            title: 'Cinetorre: Il Violinista del Diavolo',
+            id: 'CineTorre-violinista',
+            title: 'CineTorre: Il Violinista del Diavolo',
             subtitle: 'Cinema & Comunità',
             dateStr: '2026-11-20',
             dateDisplay: 'Venerdì 20 Novembre 2026',
@@ -117,6 +117,18 @@ document.addEventListener('DOMContentLoaded', () => {
             audience: 'Aperto a tutti: giovani, famiglie e appassionati di cinema',
             description: 'Un uomo capace di incantare il mondo con un solo tocco delle corde, ma prigioniero del suo stesso genio. Il Violinista del Diavolo racconta la vita straordinaria e appassionante di Niccolò Paganini: l artista ribelle che ha trasformato la musica per sempre, tra teatri in delirio, ombre misteriose e un amore puro che proverà a salvargli l anima. Un film intenso, elegante e travolgente!', 
             posterFallback: 'violinista.JPG'
+        },
+        {
+            id: 'CineTorre-troisi',
+            title: 'CineTorre: Non ci resta che piangere',
+            subtitle: 'Cinema & Comunità',
+            dateStr: '2026-11-27',
+            dateDisplay: 'Venerdì 27 Novembre 2026',
+            time: 'Ore 21:00 (Ingresso Libero)',
+            location: 'Centro Policulturale – Loc. Paolello',
+            audience: 'Aperto a tutti: giovani, famiglie e appassionati di cinema',
+            description: 'Due amici per caso, un temporale improvviso e un salto indietro nel tempo fino al 1492! In Non ci resta che piangere, gli irresistibili Massimo Troisi e Roberto Benigni si ritrovano spaesati nel Medioevo tra dogane assurde ("Chi siete? Cosa portate? Un fiorino!"), locande di altri tempi e la folle corsa per fermare Cristoforo Colombo. Una commedia geniale e piena di tenerezza che conquista a ogni visione: impossibile non ridere di cuore!', 
+            posterFallback: 'troisi.jpeg'
         }
     ];
 
@@ -479,6 +491,22 @@ document.addEventListener('DOMContentLoaded', () => {
     const galleryAlbums = [
 
         {
+            id: 'Violinista',
+            title: 'CineTorre - Il Violinista del Diavolo',
+            date: '20 Novembre 2026',
+            desc: 'Gli scatti della settima serata di cinema e comunità al Centro Policulturale con la proiezione di Quasi amici, Popcorn, divertimento e grande partecipazione.',
+            cover: 'violinista.JPG',
+            photos: [
+                'violinista.JPG',
+                'violinista-1.JPG',
+                'violinista-2.JPG',
+                'violinista-3.JPG',
+                'violinista-4.JPG',
+                'violinista-5.JPG',
+                'violinista-6.JPG'     
+            ]               
+        },
+        {
             id: 'San-Martino',
             title: 'San Martino 2026',
             date: '14 Novembre 2026',
@@ -501,7 +529,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         {
             id: 'cinetorre-inception',
-            title: 'Cinetorre - Inception',
+            title: 'CineTorre - Inception',
             date: '13 Novembre 2026',
             desc: 'Gli scatti della sesta serata di cinema e comunità al Centro Policulturale con la proiezione di Quasi amici, Popcorn, divertimento e grande partecipazione.',
             cover: 'inception.JPG',
@@ -516,7 +544,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         {
             id: 'cinetorre-quasi amici',
-            title: 'Cinetorre - Quasi amici',
+            title: 'CineTorre - Quasi amici',
             date: '06 Novembre 2026',
             desc: 'Gli scatti della quinta serata di cinema e comunità al Centro Policulturale con la proiezione di Quasi amici, Popcorn, divertimento e grande partecipazione.',
             cover: 'quasi-amici.JPG',
